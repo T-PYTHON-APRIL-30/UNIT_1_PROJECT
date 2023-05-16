@@ -1,0 +1,3 @@
+- pip install requests
+- pip install geopy
+- git api from openweatherapi

@@ -1,0 +1,23 @@
+{
+     "users": {
+          "@khalid": [
+               {
+                    "tecket_no": "22",
+                    "passengers": "1",
+                    "from_city": "abha",
+                    "seat_no": "11",
+                    "to_city": "jeddah",
+                    "date": "2023-05-16"
+               },
+               {
+                    "tecket_no": "2",
+                    "passengers": "1",
+                    "from_city": "aa",
+                    "seat_no": "1",
+                    "to_city": "jeah",
+                    "date": "2023-16"
+               }
+             
+          ]
+     }
+}
