@@ -30,10 +30,14 @@ class Game:
     def setScore(self,points):
         self.__score = points
 
-    def checkAnswer(self,answer:str) -> str:
+    def checkAnswer(self,question) -> str: # takes the question > return string
         '''return correct (then the score will incremented) or incorrect (then the life will decremented)
         '''
-        pass
+        if self.answer.lower() == generalQ[question].lower():
+            self.setScore(self.getScore()+10)
+            return 'Correct'
+        else:
+            return 'Incorrect'
 
     def showResult(self)-> str:
         pass
@@ -41,10 +45,10 @@ class Game:
 
 
 
-welcoming = text2art('WELCOM TO',font='tarty6')
+welcoming = text2art('WELCOM  TO',font='tarty6')
 print(Fore.MAGENTA + welcoming)
-playsound('ready.mp3')
-game_name = text2art('BRAIN TESTER', font='tarty7')
+#playsound('ready.mp3')
+game_name = text2art('BRAIN  TESTER', font='tarty7')
 
 print(Fore.MAGENTA + game_name)
 print()
@@ -59,9 +63,30 @@ while True:
 
         try:
             choice = int(input('Please provide an integer number: '))
+            print()
 
             if choice == 1:
-                pass
+                question = random.choice(list(generalQ.keys()))
+                print(question)
+                print()
+                answer = input('Your answer is: ')
+                print()
+                game1 = Game(question,answer)
+
+                if game1.checkAnswer(question) == 'Correct':
+                    playsound('clapping.mp3')
+                    good = text2art('GOOD  JOB!', font='tarty7')
+                    print(Fore.MAGENTA + good)
+                    print()
+                    print(f'Your Score is {game1.getScore()} and you have {life} lifes ^^')
+                    print()
+
+                else:
+                    life -= 1
+                    print(f'Your answer is wrong :( The correct answer is {generalQ[question]}')
+                    print(f'You have {life} lifes')
+                    print()
+                
 
             elif choice == 2:
                 pass
@@ -80,9 +105,10 @@ while True:
             TypeError('Please provide an integer number...')
 
     else:
-        #playsound('gameover.mp3')
+        playsound('gameover.mp3')
         game_over = text2art('GAME OVER',font='tarty6')
         print(Fore.MAGENTA + game_over)
+        print(f'You reached your limits of your lifes {life}')
         print('Try again next time ^,^')
         break
 
