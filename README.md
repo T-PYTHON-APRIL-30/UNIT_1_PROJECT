@@ -2,18 +2,18 @@
 
 ## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
 
-- Must be interactive on CLI.
+- Must be interactive on CLI.  Done
 - Use lists or dictionaries or tuples. 
-- Use loops.
-- Use functions that return an output . 
+- Use loops.  Done
+- Use functions that return an output . Done
 - Use a Lambda function.
-- Use at least 1 Class.
+- Use at least 1 Class. Done
 - Use some form of Error Handling .
-- Organize Your Code into modules & (or packages)
+- Organize Your Code into modules & (or packages)  Done
 
-## Example Project :  An online Grocery Store :
+## Project :  Guess Game :
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+#### Overview : The game contains many categories of sports, cities and movies. First, you choose the category then start the game and then guess from the hints of the answer or get another hint, and then you will get your score.
 
 #### As a customer I should be able to do the following :
 - Browse  Products . 
