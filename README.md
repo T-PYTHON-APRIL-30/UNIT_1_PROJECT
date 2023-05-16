@@ -11,13 +11,16 @@
 - Use some form of Error Handling .
 - Organize Your Code into modules & (or packages)
 
-## Example Project :  An online Grocery Store :
+## Project :  An online Café :
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+#### Overview : An online Café that makes customer to order what he like form coffee or bekry. typically serve coffee and food such as pancakes, baguette sandwiches, pastries, and desserts.
+
+# This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+#### 
 
 #### As a customer I should be able to do the following :
 - Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
+- View the product info (summary, price and quantity)
 - Search for Products.
 - Get recommendations for my next purchase based on my purchase history.
 - Add Products to the shopping cart .
