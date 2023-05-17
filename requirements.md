@@ -1,3 +1,4 @@
 - pip install requests
 - pip install geopy
+-pip install art
 - git api from openweatherapi

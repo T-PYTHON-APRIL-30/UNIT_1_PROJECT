@@ -1,7 +1,7 @@
 import datetime
 import json
-class user:
-    def __init__(self,user_name,tecket_no,from_city,to_city ,seat_no,date=datetime.datetime.today().date(),Passengers=1):
+class User:
+    def __init__(self,user_name:str,tecket_no:str,from_city:str,to_city:str ,seat_no:str,date:str=datetime.datetime.today().date(),Passengers:int=1):
        
         self.user_name=user_name
         self.tecket_no=tecket_no
@@ -68,3 +68,4 @@ AT {fill["date"]} PASSENGERS : {fill["passengers"]} SEAT NUMBER : {fill["seat_no
             else:
                 print("there are no recods")
 
+find_history_user("@khalid")
