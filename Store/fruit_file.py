@@ -1,9 +1,9 @@
 
-import sys
-sys.path.append('d:\\PY\\UNIT_1_PROJECT\\Store\\fruit_file.py')
-print(sys.path)
+#import sys
+#sys.path.append('d:\\PY\\UNIT_1_PROJECT\\Store\\fruit_file.py')
+#print(sys.path)
 class Fruit_Object:
-    def __init__(self,name,description,price):
+    def __init__(self,name=None,description=None,price=0):
         self.__name = name
         self.__description = description
         self.__price = price

@@ -1,20 +1,21 @@
 
-from fruit_file import Fruit_Object
+from Store.fruit_file import Fruit_Object
 import random
 import sys
-sys.path.append('d:\\PY\\UNIT_1_PROJECT\\Store\\Market.py')
+#sys.path.append('d:\\PY\\UNIT_1_PROJECT\\Store\\Market.py')
 
-print(sys.path)
+
 class Store:
     def __init__(self,inventory=None,cart=None):
         self.__inventory = inventory or [Fruit_Object()]
         self.__cart = cart or [Fruit_Object()]
     
     def browse(self):
-        for Fruit_Object in self.__inventory:
-            print(Fruit_Object)
+        #for Fruit_Object in self.__inventory:
+            #print(Fruit_Object)
+        print("working")
 
-    print("--")
+    
     def view_product_info(self,name):
         try:
             for Fruit_Object in self.__inventory:
@@ -25,8 +26,7 @@ class Store:
         except Exception as e:
             print(e)
     
-    print("--")
-
+    
     def search_for_product(self,keyword):
         try:
             for Fruit_Object in self.__inventory:
@@ -37,8 +37,7 @@ class Store:
         except Exception as e:
             print(e)    
 
-    print("--")
-
+    
     def get_recommendations(self):
         if not self.__cart:
             print("cart is empty,try adding to the cart first to provide recommendation")
@@ -55,8 +54,7 @@ class Store:
             for Fruit_Object in random.sample(recommended,min(len(recommended)),3):
                 print(Fruit_Object)
     
-    print("--")
-
+    
     def add_product_to_cart(self,item):
         try:
             for Fruit_Object in self.__inventory:
@@ -69,8 +67,7 @@ class Store:
         except Exception as e:
             print(e)
     
-    print("--")
-
+    
     def remove_product_from_cart(self,item):
         try:
             if not self.__cart:
@@ -87,7 +84,6 @@ class Store:
         except Exception as e:
             print(e)
 
-    print("--")
     
     def list_the_prodcuts(self):
         if not self.__cart:
@@ -98,8 +94,7 @@ class Store:
             for Fruit_Object in self.__cart:
                  print(Fruit_Object)
     
-    print("--")
-
+    
     def checkout(self) -> bool:
         if not self.__cart:
             print("cart is empty")
@@ -125,7 +120,6 @@ class Store:
         except Exception as e:
             print(e)
     
-    print("--")
     
     def manager_adding_products_to_inventory(self,Fruit_Object:Fruit_Object):
         self.__inventory = Fruit_Object
@@ -135,8 +129,7 @@ class Store:
                 self.__inventory.remove(Fruit_Object)
                 return
 
-    print("--")
-
+    
     def my_dec(func):
         def wrapper():
             print("it shows thr status depending on the situation of the order")
@@ -145,8 +138,7 @@ class Store:
             return result
         return wrapper
     
-    print("--")
-
+    
     @my_dec
     def check_delivery_status(self,word):
         word1 = ["ongoing","late","postponed"]
@@ -158,7 +150,6 @@ class Store:
             print(word1[2])
 
 
-    print("--")    
                       
 
 
