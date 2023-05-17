@@ -1,28 +1,17 @@
 coffee_menu={
     "Latte": 8.00,
-    2 : 12.00,
-    3 : 11.00,
-    4 : 18.00,
-    5 : 13.00,
-    6 : 7.00,
-    7 : 3.00
+    " Americano": 12.00,
+    "Espresso": 11.00,
+    "Cappuccino": 18.00,
+    "Macchiato": 13.00,
+    "tea": 6.00,
+    "water": 2.00
 }
 
 bakery_menu={
-    1 : 14.00,
-    2 : 24.00,
-    3 : 19.00,
-    4 : 16.00,
-    5 : 17.00,
+    "pancakes": 14.00,
+    "baguette sandwiche,": 24.00,
+    "Chocolate Danish": 19.00,
+    "Croissant with cheese": 16.00,
+    "cookies": 17.00,
 }
-
-
-'''"Latte":, 
-    " Americano",
-    "Espresso", 
-    "Cappuccino",
-    "Macchiato"'''
-
-'''pancakes, baguette sandwiche, Chocolate Danish, Croissant , Croissant with cheese'''
-for i in coffee_menu.keys():
-    pass
