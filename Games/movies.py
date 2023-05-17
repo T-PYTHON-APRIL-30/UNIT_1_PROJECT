@@ -4,13 +4,13 @@ def moviesGame():
         print("You have to guess what is the movie !")
         print("Are you ready?")
         start_game = str(input("'Y' -> Yes to start the game \n'N' -> No to choose another game\nEnter: ")).lower()
-        if not start_game.isdigit() and len(start_game) == 1 :
+        if start_game.isalpha() and len(start_game) == 1 :
             if start_game == "y" :
                 print("The game is starts...")
                 moviesQ.puzzle()
             elif start_game == "n" :
                 break
             else:
-                print("\nWrong entry.. Try again !")
+                print("\nWrong entry.. Try again !\n")
         else:
-            print("\nWrong entrt.. Try again !")
+            print("\nWrong entry.. Try again !\n")

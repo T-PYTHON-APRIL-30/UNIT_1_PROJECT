@@ -1,3 +1,5 @@
+from Questions import cheackScoreTime as finalScore
+import time
 class Answer:
     def __init__(self,answer:str):
         self.answer = answer
@@ -23,7 +25,17 @@ answer1 = Hint("Interstellar")
 answer2 = Hint("Prisoners")
 answer3 = Hint("Harry Potter")
 
-def cheackScore(total):
+'''def cheackTime(time):
+    if time < 5.0 :
+        return print(f"\n\tThat was fast ! You takes only {time} seconds.\n")
+    elif time > 25.0 :
+        return print(f"\n\tThat was late ! You takes {time} seconds.\n")
+    else:
+        return print(f"\n\tYou takes {time} seconds.\n")
+
+def cheackScore(total,time):
+    if time > 25.0 :
+        total -= 0.25
     if 0.0 >= total :
         return print("\n\tYou didn't get any answer correct!\n")
     elif 0.0 < total < 2.0 :
@@ -31,17 +43,18 @@ def cheackScore(total):
     elif 2.0 <= total < 4.0 :
         return print(f"\n\tNice ! You got {total}/5 !\n")
     elif total >= 4.0 :
-        return print(f"\n\tCongrats !! You got {total}/5 !\n")
+        return print(f"\n\tCongrats !! You got {total}/5 !\n")'''
     
 def puzzle():    
     score = []
+    start = time.time()
     print("\n\tThey sent me to space for science!\n")
     print("Who am I?")
     guess1 = input("[ 'J' -> Joker Or 'I' -> Interstellar Or 'D' -> Django Or 'B' -> Batman ]\n'h' -> for a hint\nEnter: ").lower()
     if guess1 == "i":
         score.append(1.5)
     elif guess1 == "h":
-        score.append(-0.5)
+        score.append(-0.25)
         answer1.hintOne()
         print("Who am I?")
         guess1h = input("[ 'J' -> Joker - 'I' -> Interstellar - 'D' -> Django - 'B' -> Batman ]\nEnter: ").lower()
@@ -60,10 +73,10 @@ def puzzle():
     if guess2 == "p":
         score.append(1.5)
     elif guess2 == "h":
-        score.append(-0.5)
+        score.append(-0.25)
         answer2.hintTwo()
         print("Who am I?")
-        guess2h = input("[ 'N' -> NoBody Or 'S' -> Scarface Or 'D' -> Django Or 'P' -> Prisoners ]\n'h' -> for a hint\nEnter: ").lower()
+        guess2h = input("[ 'N' -> NoBody Or 'S' -> Scarface Or 'D' -> Django Or 'P' -> Prisoners ]\nEnter: ").lower()
         if guess2h == "p":
             score.append(1.5)
         elif guess2h != "p":
@@ -79,10 +92,10 @@ def puzzle():
     if guess3 == "p":
         score.append(2)
     elif guess3 == "h":
-        score.append(-0.5)
+        score.append(-0.25)
         answer3.hintThree()
         print("Who am I?")
-        guess3h = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\n'h' -> for a hint\nEnter: ").lower()
+        guess3h = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\nEnter: ").lower()
         if guess3h == "p":
             score.append(2)
         elif guess3h != "p":
@@ -91,6 +104,13 @@ def puzzle():
     elif guess3 != "p" and guess3 != "h":
         answer3.correctAnswer()
         print("*"*50)
-    
-    totalScore=sum(score)
-    cheackScore(totalScore)
+    end = time.time()
+
+    timeTaken  = round((end - start),2)
+    scoreFun = lambda scoreList : scoreList[0] if len(scoreList) == 1 else scoreList[0] + scoreFun(scoreList[1:])
+    try:
+        totalScore = scoreFun(score)
+        finalScore.cheackScore(totalScore,timeTaken)
+        finalScore.cheackTime(timeTaken)
+    except:
+        print("\n\tYou didn't get any answer correct!\n")
