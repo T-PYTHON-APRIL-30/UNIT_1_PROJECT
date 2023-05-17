@@ -7,8 +7,8 @@ generalQ = {'What is the fastest animal?': 'Cheetah', 'How many hearts does an O
 
 historicalQ = {'What is the duration of King Abdulaziz bin Saud\'s rule of Saudi Arabia?' : '51 years', 'When did World War 1 take place?': '1914',
                'What was the capital city of the ottoman empire?':'Constantinople', 'What is the capital of the abbasid empire': 'Baghdad', 
-               'What is the capital of the Umayyad Caliphate?' : 'Damascus','In which year was the kingdom of saudi arabia founded':'1932',
-               'Who is the founder of Kingdom of Saudi Arabia': 'King Abdulaziz', }
+               'What is the capital of the Umayyad Caliphate?' : 'Damascus','In which year was the kingdom of saudi arabia founded?':'1932',
+               'Who is the founder of Kingdom of Saudi Arabia?': 'King Abdulaziz' }
 
 scientificQ = {'What unit is used to measure the sound?':'Decibels','Which material is formed by mixing copper and tin?':'Bronze',
                'How many heart valves does a human have? (Answer in number)' : '4','What is the most expensive metal on Earth?' : 'Rhodium'
