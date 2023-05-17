@@ -1,5 +1,5 @@
 import arabic_reshaper 
-from classes import Users
+from classes import user1
 
 def resh (par1):
 
@@ -9,35 +9,40 @@ def resh (par1):
         correct_text+= i
     
     return correct_text
-x= 0
-def new_user ():
-    new_user_name = input("Enter your name: ")
+def log_in ():
+    user_name = input("Enter your name: ")
     x = 0
     while x<1:
-        new_user_password = int(input("Enter your password: "))
-        password_check = str(new_user_password)
-        if len(password_check) <8:
-            print("please enter at least 8 numbers ") 
-        else:
+        user_password = int(input("Enter your password: "))
+        if user_password == user1.get_password():
+            print(f"Welcome back {user1.name}") 
             x+=1
-            new = Users(new_user_name,new_user_password)
-            print (f"Your username is: {new_user_name}\nYour password is {new_user_password}")
-    return new
+        else:
+            print("The password is incorrect")        
+    return 
 
-'''
+def add_progress():
+    file = open("my_track.txt","a",encoding="utf-8")
+    file.write("\n"+input("What do you want to add?"))
+    file.close()
+    return
 
-user_count_open.close()
+def progress_check():
+    file = open("my_track.txt","r",encoding="utf-8")
+    cont = file.read()
+    print(cont)
+    file.close()
+    return
 
-user_count = user_count.read
-def users():
-    user_count_open = open("user_count.txt","w+",encoding="utf-8"
-    user_count_read = user_count_open.read()
-    
-    user_str = str(user_count)
-    user1= ("User")
-    user1 += user_str
+def add_absent():
+    file = open("absents.txt","a",encoding="utf-8")
+    file.write("\n"+input("What do you want to add?"))
+    file.close()
+    return
 
-    user1 = Users(input("Enter your name"),input("Enter your password"))
-    return user1
-'''
-
+def absents_check():
+    file = open("absents.txt","r",encoding="utf-8")
+    cont = file.read()
+    print(cont)
+    file.close()
+    return

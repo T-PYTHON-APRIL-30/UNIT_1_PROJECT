@@ -2,14 +2,14 @@
 
 ## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
 
-- Must be interactive on CLI.
+- Must be interactive on CLI. done
 - Use lists or dictionaries or tuples. 
-- Use loops.
-- Use functions that return an output . 
+- Use loops. done
+- Use functions that return an output .  done
 - Use a Lambda function.
-- Use at least 1 Class.
+- Use at least 1 Class. done
 - Use some form of Error Handling .
-- Organize Your Code into modules & (or packages)
+- Organize Your Code into modules & (or packages) done
 
 ## Example Project :  An online Grocery Store :
 

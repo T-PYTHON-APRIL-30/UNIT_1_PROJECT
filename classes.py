@@ -5,5 +5,5 @@ class Users:
     
     def get_password (self):
         return self.__password
-user1 = Users("aziz",123123)
 
+user1 = Users("Abdulaziz",123)
