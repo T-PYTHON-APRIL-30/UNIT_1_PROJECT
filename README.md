@@ -3,7 +3,7 @@
 ## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
 
 - Must be interactive on CLI.  Done
-- Use lists or dictionaries or tuples. 
+- Use lists or dictionaries or tuples. Done
 - Use loops.  Done
 - Use functions that return an output . Done
 - Use a Lambda function.

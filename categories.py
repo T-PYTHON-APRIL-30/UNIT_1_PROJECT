@@ -1,11 +1,5 @@
 from Games import sports,movies,cities
 
-
-
-
-
-
-
 def rules():
     print("\n\tThis is the rules:")
     print("\tQuestion 1 has 1.5 points")

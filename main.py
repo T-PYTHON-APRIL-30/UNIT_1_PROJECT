@@ -5,7 +5,6 @@ while True :
     start_game = str(input("'Y' -> Yes \n'N' -> No \nEnter: ")).lower()
     if not start_game.isdigit() and len(start_game) == 1 :
         if start_game == "y" :
-            print("You will start the game")
             categories.chooseCategory()
         elif start_game == "n" :
             print("\n\tSee You Soon (;\n")
