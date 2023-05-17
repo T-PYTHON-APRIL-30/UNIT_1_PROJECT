@@ -1,9 +1,11 @@
+#packages
 from colorama import Fore
 
 
 def check_add(movie: dict, movie_name: str, movie_reviwe: str, movie_rating: str, movie_section: str):
     '''this class check user input'''
 
+    # check name and reviwe
     if type(movie_name) != str:
         txt = Fore.RED + "Enter a real movie.."
         raise Exception(txt)
@@ -12,6 +14,7 @@ def check_add(movie: dict, movie_name: str, movie_reviwe: str, movie_rating: str
         raise Exception(txt1)
     
 
+    # check section and change the input
     if movie_section == "1":
         movie["section"] = "watching"
     elif movie_section == "2":
@@ -23,6 +26,7 @@ def check_add(movie: dict, movie_name: str, movie_reviwe: str, movie_rating: str
         raise Exception(txt2)
     
     
+    # check rating and change the input
     if movie_rating == "1":
         movie["rating"] = "★☆☆☆☆"
     elif movie_rating == "2":

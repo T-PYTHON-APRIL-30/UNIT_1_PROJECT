@@ -1,12 +1,15 @@
 #packages
 from colorama import Fore
 
-from movie_list import DisplayMenu
+from movie_list import Display
 from modules import check_input
 
 
 def add_menu(movie_data: list):
     '''this function to add a movie in the list'''
+
+    txt = Fore.YELLOW + 'Add new movie to your list'
+    print(txt.center(175), end = "\n")
 
     txt1 = """Enter the movie name:
 > """
@@ -44,5 +47,5 @@ def add_menu(movie_data: list):
     check_input.check_add(movie, movie_name, movie_reviwe, movie_rating, movie_section)
     movie_data.append(movie) # add new movie to the list
 
-    display = DisplayMenu(movie_data)
+    display = Display(movie_data)
     return display.display()
