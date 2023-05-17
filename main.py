@@ -5,10 +5,11 @@ from movie_list import DisplayMenu
 from add_movie import add_menu
 from remove_movie import remove_menu
 from list_sections import section_menu
+from statistics_list import status
 
 
-movie_data = [
-    {
+movie_data: list = [
+        {
         "movie": "SpiderMan",
         "reviwe": "Good!!",
         "rating": "★★★★☆",
@@ -24,35 +25,43 @@ movie_data = [
         "rating": "★★★★☆",
         "section": "plan to watch"
     }
-]
+] # list to store user data
 
 say('My Movie List', colors=['blue', 'yellow'], align='center')
 txt = Fore.YELLOW + 'Track your movies, anytime anywhere'
 print(txt.center(175), end = "\n")
 
-main_menu = input("""
-    Choose from the list, by typing the number:
-    1. My list
-    2. Add new movie
-    3. Remove movie
-    4. edit the list
-    0. Exist
+while True:
+    # the main list menu
+    txt1 = """
+        Choose from the list, by typing the number:
+        1. My list
+        2. Add new movie
+        3. Remove movie
+        4. edit the list
+        5. My list stats
+        0. Exist
 
-> """)
-
-try:
-    if main_menu == "1":
-        display = DisplayMenu(movie_data)
-        display.display()
-    elif main_menu == "2":
-        add_menu(movie_data)
-    elif main_menu == "3":
-        remove_menu(movie_data)
-    elif main_menu == "4":
-        section_menu(movie_data)
-    elif main_menu == "0":
-        pass
-    else:
-        raise Exception("Try again...")
-except Exception as e:
-    print(e)
+    > """
+    txt2 = Fore.BLUE + txt1
+    main_menu = input(txt2)
+    
+    try:
+        if main_menu == "1":
+            display = DisplayMenu(movie_data)
+            display.display()
+        elif main_menu == "2":
+            add_menu(movie_data)
+        elif main_menu == "3":
+            remove_menu(movie_data)
+        elif main_menu == "4":
+            section_menu(movie_data)
+        elif main_menu == "5":
+            status(movie_data)
+        elif main_menu == "0":
+            break
+        else:
+            txt3 = Fore.RED + "Try again..."
+            raise Exception(txt3)
+    except Exception as e:
+        print(e)

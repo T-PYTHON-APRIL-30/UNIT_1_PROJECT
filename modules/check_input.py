@@ -1,9 +1,17 @@
-def check_add(movie, movie_name, movie_reviwe, movie_rating, movie_section):
+from colorama import Fore
+
+
+def check_add(movie: dict, movie_name: str, movie_reviwe: str, movie_rating: str, movie_section: str):
+    '''this class check user input'''
+
     if type(movie_name) != str:
-        raise Exception("Enter a real movie..")
+        txt = Fore.RED + "Enter a real movie.."
+        raise Exception(txt)
     elif len(movie_reviwe) > 200:
-        raise Exception("You have exceeded the limit!!")
+        txt1 = Fore.RED + "You have exceeded the limit 200 character!!"
+        raise Exception(txt1)
     
+
     if movie_section == "1":
         movie["section"] = "watching"
     elif movie_section == "2":
@@ -11,7 +19,9 @@ def check_add(movie, movie_name, movie_reviwe, movie_rating, movie_section):
     elif movie_section == "3":
         movie["section"] = "plan to watch"
     else:
-        raise Exception("type a correct number")
+        txt2 = Fore.RED + "type a correct number"
+        raise Exception(txt2)
+    
     
     if movie_rating == "1":
         movie["rating"] = "★☆☆☆☆"
@@ -24,4 +34,5 @@ def check_add(movie, movie_name, movie_reviwe, movie_rating, movie_section):
     elif movie_rating == "5":
         movie["rating"] = "★★★★★"
     else:
-        raise Exception("type a correct number")
+        txt3 = Fore.RED + "type a correct number"
+        raise Exception(txt3)

@@ -21,6 +21,7 @@
 - View my list (possibility to choose a specific section).
 - Remove a movie form my list.
 - Modification of list sections. 
+- View statistics my list.
 
 
 
