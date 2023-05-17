@@ -5,6 +5,7 @@ from rich.table import Table
 data_list = []
 
 def display_watching(movie_data):
+    data_list.clear()
     for data in movie_data:
         if data["section"] == "watching":
             data_list.append(data)
@@ -25,6 +26,7 @@ def display_watching(movie_data):
 
 
 def display_completed(movie_data):
+    data_list.clear()
     for data in movie_data:
         if data["section"] == "completed":
             data_list.append(data)
@@ -44,6 +46,7 @@ def display_completed(movie_data):
 
 
 def display_plan(movie_data):
+    data_list.clear()
     for data in movie_data:
         if data["section"] == "plan to watch":
             data_list.append(data)

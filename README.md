@@ -20,7 +20,6 @@
 - Divide the favorites list into several sections (watching, completed, plan to watch).
 - View my list (possibility to choose a specific section).
 - Remove a movie form my list.
-- View my review details for each movie.
 - Modification of list sections. 
 
 

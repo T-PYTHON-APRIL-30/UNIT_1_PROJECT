@@ -41,13 +41,16 @@ def list_menu(movie_data):
 
     > """)
 
-    if int(user_input) == 1:
+    if user_input == "1":
         display_packages.display_watching(movie_data)
-    elif int(user_input) == 2:
+        list_menu(movie_data)
+    elif user_input == "2":
         display_packages.display_completed(movie_data)
-    elif int(user_input) == 3:
+        list_menu(movie_data)
+    elif user_input == "3":
         display_packages.display_plan(movie_data)
-    elif int(user_input) == 0:
+        list_menu(movie_data)
+    elif user_input == "0":
         import main
     else:
         raise Exception("Try again...")
