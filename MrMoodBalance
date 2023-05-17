@@ -1,0 +1,7 @@
+class MrMoodBalance:
+ def __init__(self, name):
+  self.name=input("please enter your name:")
+
+
+def welcome(self):
+ print (f"welcome to Mr Mood Balance {self.name}! How Are You Felling Today?")
