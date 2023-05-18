@@ -25,8 +25,11 @@
 
 #### Usage :
  Explain to the user how to use your project . 
- for example:
  - write your name to wellcome and show the list of prodects
+ - answer yes if you want to order or no if don't want
+ - read the menu and choose one choice
+ - complete your order to add it for invoice
+ - after finishing an order, you will see what you added
 
 
 ### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 

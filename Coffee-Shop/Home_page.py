@@ -1,10 +1,10 @@
 from colorama import colorama_text
 from art import text2art,tprint
-import Drinks_page
+import Drinks_page, Donuts_page
 
 
-wellcome = tprint("Wellcome to our Coffee-shop")
-print(wellcome)
+tprint("Wellcome to our Coffee-shop")
+
 
 
 user_name = str(input("Hi Enter Your Name!: "))
@@ -18,17 +18,17 @@ else:
 print("")
 
 
-print("in this program you can order some coffee and dounts... \n")
+print("in this program you can order some Coffee and Donuts... \n")
 print("Look at the list of product \n \n")
 print("Coffee")
-Drinks_page.hot_drinks() , Drinks_page.cold_drinks()
+Drinks_page.hot_drinks() , Drinks_page.cold_drinks() , Donuts_page.donuts()
 
 def process_order(answer:str):
 
     if answer.lower() == "n" or answer.lower() == "no":
         return answer
 
-    answer = input("\n Drinks(d) Or Dounts(dn)? ")
+    answer = input("\n Drinks(d) Or Donuts(dn)? ")
 
     if answer.lower() == "d" or answer.lower() == "drinks":
         answer = input("\n Hot Drinks(h) Or Cold Drinks(c)")
@@ -48,9 +48,19 @@ def process_order(answer:str):
         else:
             print("please check the answer!")
             return process_order()
+        
 
-        #elif input_of_user.lower() == "dn" or "dounts":
-        #    pass
+    elif answer.lower() == "dn"  or answer.lower() == "donuts":
+        Donuts_page.donuts()
+        answer = input("\n write waht you want of the list: ")
+        answer = answer.title()
+        Donuts_page.take_order("c",answer)
+
+    else:
+            print("please check the answer!")
+            return process_order("y")
+
+
     answer = input("Do you want add anything else? ")
     process_order(answer)   
 
@@ -70,7 +80,7 @@ while user_answer == "n" or user_answer == "no":
         user_answer = input("Do you want to exit y(yes) or n(no)? ")
 
         if user_answer == "y" or user_answer == "yes":
-            exit()
+            exit("Thank you... see you soon ")
         
             
 

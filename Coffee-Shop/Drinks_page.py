@@ -47,6 +47,7 @@ def take_order(type:str,order:str):
             print("please check the name of order")
     else:
         print("Please check the input!")
+    
         
 def print_your_order():
     count = 1
