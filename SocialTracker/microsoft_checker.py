@@ -3,13 +3,12 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 
 def Microsofot_checker(self):
     options = Options()
     profile = webdriver.FirefoxProfile()
     profile.set_preference("browser.privatebrowsing.autostart", True)
-    options.add_argument('-headless')
+    #options.add_argument('-headless')
     options.binary_location = r"C:\Program Files\Mozilla Firefox/firefox.exe"
     driver = webdriver.Firefox(options=options, firefox_profile=profile, executable_path="C:/geckodriver.exe")
     driver.implicitly_wait(2)
@@ -19,16 +18,30 @@ def Microsofot_checker(self):
     keys= driver.find_element(By.XPATH,'//*[@id="i0116"]')
     keys.send_keys(self)
     sleep(0.9)
-    next= driver.find_element(By.XPATH,"//*[@id='idSIButton9']").click()
-    sleep(0.9)
-    next1= driver.find_element(By.XPATH,'//*[@id="idSIButton9"]').click()
     try:
+        next= driver.find_element(By.XPATH,"//*[@id='idSIButton9']")
+        next.click()
+        sleep(2)
+        confirm = driver.find_element(By.XPATH,'//*[@id="loginHeader"]').text
+        textconfi = "Confirm your phone number"
+        if confirm == textconfi:
+            next= driver.find_element(By.XPATH,"//*[@id='idSIButton9']")
+            next.click()
+            sleep(2)
+        else:
+            print("")
+        sleep(0.9)
         result= driver.find_element(By.XPATH,'//*[@id="usernameError"]').text
         usererror= "This phone number does not exist as a username. Please check if your number is correct."
         if result == usererror:
             print(f"Microsoft : Not Found ... \n")
     except:
-        print(f"Microsoft : Found... \n")
-    #keys.send_keys(self[3:])
+        auth = driver.find_element(By.XPATH,'//*[@id="loginHeader"]').text
+        res = "Check Microsoft Authenticator"
+        if auth == res:
+            print(f" Microsoft : Found ...")
+        else:
+            print(f"Microsoft : Found... \n")
     sleep(0.2)
     driver.close()
+1
