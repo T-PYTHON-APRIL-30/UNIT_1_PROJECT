@@ -6,7 +6,7 @@ generalQ = {'What is the fastest animal?': 'Cheetah', 'How many hearts does an O
             }
 
 historicalQ = {'What is the duration of King Abdulaziz bin Saud\'s rule of Saudi Arabia?' : '51 years', 'When did World War 1 take place?': '1914',
-               'What was the capital city of the ottoman empire?':'Constantinople', 'What is the capital of the abbasid empire': 'Baghdad', 
+               'What was the capital city of the ottoman empire?':'Constantinople', 'What is the capital of the abbasid empire?': 'Baghdad', 
                'What is the capital of the Umayyad Caliphate?' : 'Damascus','In which year was the kingdom of saudi arabia founded?':'1932',
                'Who is the founder of Kingdom of Saudi Arabia?': 'King Abdulaziz' }
 
@@ -20,4 +20,3 @@ geographicalQ = {'What is the biggest city in Africa?': 'Cairo', 'What is the la
                    'What is the Capital of Saudi Arabia?':'Riyadh', 'What is the Capital of Italy?': 'Rome',
                    'What is the capital of Australia?': 'Canberra'}
 
-print(generalQ['How many hearts does an Octopus have? (Answer in number)'])
