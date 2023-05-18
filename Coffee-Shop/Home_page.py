@@ -36,13 +36,11 @@ def process_order(answer:str):
         if answer.lower() == "h" or answer.lower() == "hot":
             Drinks_page.hot_drinks()
             answer = input("\n write waht you want of the list: ")
-            answer = answer.title()
             Drinks_page.take_order("h",answer)
 
         elif answer.lower() == "c"  or answer.lower() == "cold":
             Drinks_page.cold_drinks()
             answer = input("\n write waht you want of the list: ")
-            answer = answer.title()
             Drinks_page.take_order("c",answer)
 
         else:
@@ -53,34 +51,33 @@ def process_order(answer:str):
     elif answer.lower() == "dn"  or answer.lower() == "donuts":
         Donuts_page.donuts()
         answer = input("\n write waht you want of the list: ")
-        answer = answer.title()
-        Donuts_page.take_order("c",answer)
+        Donuts_page.take_order(answer)
 
     else:
-            print("please check the answer!")
+            print("\n please check the answer!")
             return process_order("y")
 
 
-    answer = input("Do you want add anything else? ")
-    process_order(answer)   
+    answer = input("\n Do you want add anything else? ")
+    return process_order(answer)   
 
 
 user_answer = "no"
 while user_answer == "n" or user_answer == "no":
 
-    input_of_user = input("Do you want to order? y(yes) or n(no) ")
+    input_of_user = input("\n Do you want to order? y(yes) or n(no) ")
 
     if input_of_user == "y":
                 
-        print(process_order(input_of_user))
+        process_order(input_of_user)
         Drinks_page.print_your_order()
             #checkout
             #then exit
     else:
-        user_answer = input("Do you want to exit y(yes) or n(no)? ")
+        user_answer = input("\n Do you want to exit y(yes) or n(no)? ")
 
         if user_answer == "y" or user_answer == "yes":
-            exit("Thank you... see you soon ")
+            exit("\n Thank you... see you soon ")
         
             
 

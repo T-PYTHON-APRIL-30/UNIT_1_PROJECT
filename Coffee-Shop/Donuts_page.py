@@ -14,23 +14,22 @@ def donuts():
         print(f"{count}-{name_donuts[i]} {price_donuts[i]}.SR \n")
         count +=1
 
-def take_order(type:str,order:str):
-    if type.lower() == "dn" or type.lower() == "donuts": 
+def take_order(order:str):
+        order = order.title()
         if order in name_donuts:
             order_list.append(order)
             price_list.append(dict_dounts[order])
-            print("added to the invoice")
+            print("\n added to the invoice")
             return
         else:
-            print("please check the name of order")
+            print("\n please check the name of order")
+            return take_order(input("\n write waht you want of the list: "))
 
-    else:
-        print("Please check the input!")
 
-def print_your_order():
+""" def print_your_order():
     count = 1
     print("\n You added this items ")
     
     for i in range(len(order_list)):
         print(f"{count}-{order_list[i]} {price_list[i]}.SR \n")
-        count +=1
+        count +=1 """

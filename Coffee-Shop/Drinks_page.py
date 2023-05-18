@@ -28,6 +28,7 @@ def cold_drinks():
         count +=1
         
 def take_order(type:str,order:str):
+    order = order.title()
     if type.lower() == "h" or type.lower() == "hot": 
         if order in name_hot_drinks:
             order_list.append(order)
