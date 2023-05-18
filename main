@@ -11,8 +11,69 @@ ROOT.withdraw()
 # Define the input dialog
 USER_INP = simpledialog.askstring(
     title="Input Test",
-    prompt="Type your Name?:")
+    prompt="Type your Name?:") 
 
 # Print the user input
 print("Hello", USER_INP)
 
+
+
+
+
+
+# Import necessary modules
+import sys
+
+# Define the To-Do List class
+class ToDoList:
+    def __init__(self):
+        self.tasks = []
+    
+    def add_task(self, task):
+        self.tasks.append(task)
+    
+    def remove_task(self, task):
+        if task in self.tasks:
+            self.tasks.remove(task)
+    
+    def show_tasks(self):
+        if len(self.tasks) == 0:
+            print("No tasks found.")
+        else:
+            for i, task in enumerate(self.tasks):
+                print(f"{i+1}. {task}")
+    
+    def clear_tasks(self):
+        self.tasks = []
+
+# Define the main function
+def main():
+    # Create a new instance of the ToDoList class
+    todo_list = ToDoList()
+    
+    # Define the menu options
+    menu_options = {
+        "1": ("Add Task", lambda: todo_list.add_task(input("Enter task: "))),
+        "2": ("Remove Task", lambda: todo_list.remove_task(input("Enter task: "))),
+        "3": ("Show Tasks", lambda: todo_list.show_tasks()),
+        "4": ("Clear Tasks", lambda: todo_list.clear_tasks()),
+        "5": ("Exit", sys.exit),
+    }
+    
+    # Loop through the menu options until the user chooses to exit
+    while True:
+        print("\nTo-Do List\n")
+        
+        for key, value in menu_options.items():
+            print(f"{key}. {value[0]}")
+        
+        choice = input("\nEnter your choice: ")
+        
+        try:
+            menu_options[choice][1]()
+        
+        except KeyError:
+            print("Invalid choice. Please try again.")
+
+# Call the main function
+    main()
