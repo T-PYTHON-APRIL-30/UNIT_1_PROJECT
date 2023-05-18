@@ -1,5 +1,5 @@
 import random
-import time
+#import time
 from Questions import *
 from playsound import playsound
 from art import text2art, aprint
