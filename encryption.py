@@ -6,6 +6,7 @@ import base64
 def generate_key(master_password):
     return sha256(master_password.encode()).digest()
 
+
 # Define a function to encrypt the password
 def encrypt_data(data,master_password):
     """Encrypts the password using the master password"""
@@ -14,6 +15,8 @@ def encrypt_data(data,master_password):
     f = Fernet(encoded_key)
     encrypted_password=f.encrypt(data.encode()).decode()
     return encrypted_password
+
+
 # Define a function to decrypt the password
 def decrypt_data(data, master_password):
     """Decrypts the password using the master password"""
