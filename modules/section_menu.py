@@ -8,7 +8,7 @@ def list_menu(movie_data: list):
 
     # the section menu
     txt1 = """
-        Choose from the list, by typing the number:
+    Choose from the list, by typing the number:
         1. watching list
         2. completed list
         3. plan to watch list

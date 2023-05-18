@@ -3,7 +3,7 @@ from rich.tree import Tree
 from rich import print as rprint
 
 
-def status(movie_data: list) -> int:
+def status(movie_data: list):
     '''This function calculates the status of each list'''
 
     # Count the movies in the list

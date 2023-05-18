@@ -18,7 +18,7 @@ def remove_menu(movie_data: list):
         Type the movie name that you whant to remove it from the list
         - whit the same spelling - 
         - to return to the previous list type 0 -
-        > """
+    > """
         
         txt1 = Fore.WHITE + txt # change text color
         movie_name = input(txt1)

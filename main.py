@@ -5,7 +5,7 @@ from colorama import Fore
 from movie_list import Display
 from add_movie import add_menu
 from remove_movie import remove_menu
-from list_sections import section_menu
+from list_sections import section_menu as section_menu2
 from statistics_list import status
 from modules import section_menu
 
@@ -20,7 +20,7 @@ print(txt.center(175), end = "\n")
 while True:
     # the main list menu
     txt1 = """
-        Choose from the list, by typing the number:
+    Choose from the list, by typing the number:
         1. My list
         2. Add new movie
         3. Remove movie
@@ -44,7 +44,7 @@ while True:
         elif main_menu == "3":
             remove_menu(movie_data)
         elif main_menu == "4":
-            section_menu(movie_data)
+            section_menu2(movie_data)
         elif main_menu == "5":
             status(movie_data)
         elif main_menu == "0":

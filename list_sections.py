@@ -2,7 +2,6 @@
 from colorama import Fore
 
 from movie_list import Display
-
 from modules import check_input
 
 def section_menu(movie_data: list):
@@ -16,18 +15,22 @@ def section_menu(movie_data: list):
         txt = Fore.YELLOW + 'Modify your list'
         print(txt.center(175), end = "\n")
         
-        txt1 = """Enter the movie name:
+        txt1 = """
+        Enter the movie name:
         - to return to the previous list type 0 -
     > """
-        txt2 = """Choose from the list, by typing the number:
-        1. watching
-        2. completed
-        3. plan to watch
+        txt2 = """
+        Choose from the list, by typing the number:
+            1. watching
+            2. completed
+            3. plan to watch
     > """
-        txt3 = """Type your reviwe about it:
-        - within 200 character-
+        txt3 = """
+        Type your reviwe about it:
+        - within 200 character -
     > """
-        txt4 = """Rate the movie, by choosing a number 1-5
+        txt4 = """
+        Rate the movie, by choosing a number 1-5
         - Be aware that 1 means very bad movie -
     > """
 
