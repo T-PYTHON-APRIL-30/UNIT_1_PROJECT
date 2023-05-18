@@ -1,6 +1,6 @@
-from Questions import cheackScoreTime as finalScore
 from functools import reduce
 import time
+from manager import cheackScore , cheackTime , pointsDeduction
 class Answer:
     def __init__(self,answer:str):
         self.answer = answer
@@ -25,9 +25,10 @@ class Hint(Answer):
 answer1 = Hint("Interstellar")
 answer2 = Hint("Prisoners")
 answer3 = Hint("Harry Potter")
-    
+
 def puzzle():    
-    score = []
+    score = [0]
+    hintCounter = 0
     start = time.time()
     print("\n\tThey sent me to space for science!\n")
     print("Who am I?")
@@ -36,6 +37,7 @@ def puzzle():
         score.append(1.5)
     elif guess1 == "h":
         score.append(-0.25)
+        hintCounter+=1
         answer1.hintOne()
         print("Who am I?")
         guess1h = input("[ 'J' -> Joker - 'I' -> Interstellar - 'D' -> Django - 'B' -> Batman ]\nEnter: ").lower()
@@ -53,6 +55,7 @@ def puzzle():
         score.append(1.5)
     elif guess2 == "h":
         score.append(-0.25)
+        hintCounter+=1
         answer2.hintTwo()
         print("Who am I?")
         guess2h = input("[ 'N' -> NoBody Or 'S' -> Scarface Or 'D' -> Django Or 'P' -> Prisoners ]\nEnter: ").lower()
@@ -70,6 +73,7 @@ def puzzle():
         score.append(2)
     elif guess3 == "h":
         score.append(-0.25)
+        hintCounter+=1
         answer3.hintThree()
         print("Who am I?")
         guess3h = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\nEnter: ").lower()
@@ -81,8 +85,8 @@ def puzzle():
         answer3.correctAnswer()
     
     end = time.time()
-    timeTaken  = round((end - start),2)
-    score.append(0)
+    timeTaken = round((end - start),2)
     scoreFun = reduce(lambda a,b:a+b,score)
-    finalScore.cheackScore(scoreFun,timeTaken)
-    finalScore.cheackTime(timeTaken)
+    cheackTime(timeTaken)
+    cheackScore(scoreFun,timeTaken)
+    pointsDeduction(scoreFun,hintCounter,timeTaken)

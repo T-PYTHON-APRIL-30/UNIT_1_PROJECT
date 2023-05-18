@@ -1,5 +1,5 @@
 from Questions import sportsQ , moviesQ , citiesQ
-from manager import countingThree
+from manager import countingThree , rules
 
 def sportsGame():
     while True:
@@ -51,14 +51,6 @@ def citiesGame():
                 print("\nWrong entry.. Try again !\n")
         else:
             print("\nWrong entry.. Try again !\n")
-
-def rules():
-    print("\n\tThis is the rules:")
-    print("\tQuestion 1 has 1.5 points")
-    print("\tQuestion 2 has 1.5 points")
-    print("\tQuestion 3 has 2 points")
-    print("\tAny hints it cost 0.25 points")
-    print("If you late more than 25 seconds it will cost 0.25\n")
 
 def chooseCategory():
     while True:

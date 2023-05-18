@@ -1,4 +1,4 @@
-from Questions import cheackScoreTime as finalScore
+from manager import cheackScore , cheackTime , pointsDeduction
 from functools import reduce
 import time
 class Answer:
@@ -27,7 +27,8 @@ answer2 = Hint("Mecca")
 answer3 = Hint("Vatican city")
 
 def puzzle():
-    score = []
+    score = [0]
+    hintCounter = 0
     start = time.time()
     print("\n\tI'm hot in the summer and hot in the winter !\n")
     print("Who I am?")
@@ -36,6 +37,7 @@ def puzzle():
         score.append(1.5)
     elif guess1 == "h":
         score.append(-0.25)
+        hintCounter+=1
         answer1.hintOne()
         print("Who am I?")
         guess1h = input("[ 'R' -> Riyadh - 'H' -> Hail - 'J' -> Jeddah - 'T' -> Taif ]\nEnter: ").lower()
@@ -53,6 +55,7 @@ def puzzle():
         score.append(1.5)
     elif guess2 == "h":
         score.append(-0.25)
+        hintCounter+=1
         answer2.hintTwo()
         print("Who am I?")
         guess2h = input("[ 'Q' -> Qassim - 'M' -> Mecca - 'K' -> Kuwait - 'A' -> Alain ]\nEnter: ").lower()
@@ -70,6 +73,7 @@ def puzzle():
         score.append(2)
     elif guess3 == "h":
         score.append(-0.25)
+        hintCounter+=1
         answer3.hintThree()
         print("Who am I?")
         guess3h = input("[ 'V' -> Vatican city - 'Y' -> Yanbu - 'M' -> Madrid - 'B' -> Bahrain ]\nEnter: ").lower()
@@ -82,7 +86,7 @@ def puzzle():
     
     end = time.time()
     timeTaken = round((end - start),2)
-    score.append(0)
     scoreFun = reduce(lambda a,b:a+b,score)
-    finalScore.cheackScore(scoreFun,timeTaken)
-    finalScore.cheackTime(timeTaken)
+    cheackScore(scoreFun,timeTaken)
+    cheackTime(timeTaken)
+    pointsDeduction(scoreFun,hintCounter,timeTaken)
