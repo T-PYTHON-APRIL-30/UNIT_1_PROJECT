@@ -1,6 +1,6 @@
 from Questions import sportsQ , moviesQ , citiesQ
-import time
-#
+from manager import countingThree
+
 def sportsGame():
     while True:
         print("You have to guess what is the sport !")
@@ -9,12 +9,7 @@ def sportsGame():
         if start_game.isalpha() and len(start_game) == 1 :
             if start_game == "y" :
                 print("The game is starts in",end=" ")
-                time.sleep(1)
-                print("3",end=" ")
-                time.sleep(1)
-                print("2",end=" ")
-                time.sleep(1)
-                print("1")
+                countingThree()
                 sportsQ.puzzle()
             elif start_game == "n" :
                 break
@@ -31,12 +26,7 @@ def moviesGame():
         if start_game.isalpha() and len(start_game) == 1 :
             if start_game == "y" :
                 print("The game is starts in",end=" ")
-                time.sleep(1)
-                print("3",end=" ")
-                time.sleep(1)
-                print("2",end=" ")
-                time.sleep(1)
-                print("1")
+                countingThree()
                 moviesQ.puzzle()
             elif start_game == "n" :
                 break
@@ -53,12 +43,7 @@ def citiesGame():
         if start_game.isalpha() and len(start_game) == 1 :
             if start_game == "y" :
                 print("The game is starts in",end=" ")
-                time.sleep(1)
-                print("3",end=" ")
-                time.sleep(1)
-                print("2",end=" ")
-                time.sleep(1)
-                print("1")
+                countingThree()
                 citiesQ.puzzle()
             elif start_game == "n" :
                 break

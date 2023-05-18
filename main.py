@@ -12,4 +12,4 @@ while True :
         else:
             print("\nWrong entry.. Try again !\n")
     else:
-        print("\nWrong entrt.. Try again ! 1\n")
+        print("\nWrong entry.. Try again ! \n")

@@ -1,3 +1,4 @@
+import time
 def cheackTime(time):
     if time < 5.0 :
         return print(f"\n\tThat was fast ! You takes only {time} seconds.\n")
@@ -17,3 +18,11 @@ def cheackScore(total,time):
         return print(f"\n\tNice ! You got {total}/5 !\n")
     elif total >= 4.0 :
         return print(f"\n\tBravo !! You got {total}/5 !\n")
+
+def countingThree():
+    time.sleep(1)
+    print("3",end=" ")
+    time.sleep(1)
+    print("2",end=" ")
+    time.sleep(1)
+    print("1")
