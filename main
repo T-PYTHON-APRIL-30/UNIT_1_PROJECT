@@ -1,7 +1,8 @@
 # import
 from restaurant import Restaurant
-from cfonts import render, say
-import menu
+from cfonts import render
+from termcolor import colored
+
 
 print(render('welcome to the restaurant', colors=['red', 'yellow'], align='center'))
 
@@ -9,8 +10,8 @@ restaurant = Restaurant()
 
 # the main list
 while True:
-    print("\nmain list\n")
-    print("select: \n1: place an order \n2: view orders \n3: sort the menu \n4: exit")
+    print(colored('\nyou are in the main list', 'red'))
+    print(colored("select: \n1: place an order \n2: view orders \n3: sort the menu \n4: exit", 'yellow'))
     choice = input("enter the number: ")
     if choice == "1":
         restaurant.take_order()
@@ -21,4 +22,4 @@ while True:
     elif choice == "4":
         break
     else:
-        print("* enter valid number *")
+        print(colored("\U0001F603 enter valid number \U0001F603", 'green'))
