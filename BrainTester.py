@@ -77,17 +77,18 @@ def goodBye():
     print(Style.RESET_ALL)
     print()
 
-def countdown(t):
+def decrementLife(num:int):
+    return lambda num : num - 1
+
+'''def countdown(t):
     
     while t:
         mins, secs = divmod(t, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs)
         print(timer, end="\r")
         time.sleep(1)
-        t-= 1
+        t-= 1'''
     
-
-
 
 welcoming = text2art('WELCOM  TO',font='tarty6')
 print(Fore.MAGENTA + welcoming)
@@ -101,7 +102,8 @@ print()
 
 global life, totalScore, game1
 life = 5     # the user has 5 lifes to try if he failed more than 5 times then Game over..
-totalScore = 0 # initilized the total score with 0 to increment it aafter every correct answer..
+totalScore = 0 # initilized the total score with 0 to increment it after every correct answer..
+
 
 
 while True:
@@ -121,16 +123,19 @@ while True:
                 print(Fore.MAGENTA + questionType)
                 print(Style.RESET_ALL)
                 print()
+
                 question = random.choice(list(generalQ.keys()))
                 print(question)
                 print()
+                #countdown(10)
+
                 answer = input(Fore.MAGENTA + 'Your answer is: ')
                 print(Style.RESET_ALL)
                 print()
+
                 game1 = Game(question,answer)
 
-        
-                if game1.checkAnswer(generalQ) == True:
+                if game1.checkAnswer(generalQ):
                     cheer()
                     totalScore += game1.getScore()
                     print(Fore.CYAN + f'You got extra {game1.getScore()} points. \n Your total Score is {totalScore}.'
@@ -139,7 +144,7 @@ while True:
                     print()
 
                 else:
-
+                    #life = lambda life: life -1
                     life -= 1
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {generalQ[question]}')
@@ -170,6 +175,7 @@ while True:
                     print()
 
                 else:
+                    #life = lambda life: life -1
                     life -= 1
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {historicalQ[question]}')
@@ -199,6 +205,7 @@ while True:
                     print()
 
                 else:
+                    #life = lambda life: life -1
                     life -= 1
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {scientificQ[question]}')
@@ -227,6 +234,7 @@ while True:
                     print()
 
                 else:
+                    #life = lambda life: life -1
                     life -= 1
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {geographicalQ[question]}')
