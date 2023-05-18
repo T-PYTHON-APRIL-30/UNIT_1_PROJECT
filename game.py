@@ -1,4 +1,3 @@
-import pygame
 class VideoGame:
     def __init__(self, title:str, genre:str, rating:float, platform:list,url:str) :
         self.title =title
@@ -11,7 +10,7 @@ class VideoGame:
         return f"{self.title} ({self.genre}) - Rating: {self.rating} - Platform: {self.platform}"
     
 games =[
-    VideoGame("call of duty:Modern Warfare® II","Shooter",9.0 ,["PC","PlayStation","Xbox"],r'D:/dawnlaodd/images/callofduty.png'),
+    VideoGame("call of duty:Modern Warfare2","Shooter",9.0 ,["PC","PlayStation","Xbox"],r'D:/dawnlaodd/images/callofduty.png'),
     VideoGame("Overwatch","Shooter",8.5 ,["PC","PlayStation","Xbox","Nintendo Switch"],r'D:/dawnlaodd/images/overwhatch.png'),
     VideoGame("Halo Infinite","Shooter",8.7 ,["PC","Xbox"],r'D:/dawnlaodd/images/haloinfinite.png'),
     VideoGame("Far Cry 6","Shooter",7.7,["PlayStation","Xbox"],r'D:/dawnlaodd/images/farcry6.png'),
@@ -34,21 +33,7 @@ games =[
 img = Image.open('D:\dawnlaodd\callOfDutyPoster.png')
 img.show() 
 pygame.init()'''
-def image_function():
-    displayWidth = 1270
-    displayHeight =600
-    surface =pygame.display.set_mode((displayWidth,displayHeight))
-    pygame.display.set_caption('Image')
-    displayImage=pygame.image.load(games[0].url)
-    while True:
-        surface.fill((255,255,255))
-        surface.blit(displayImage,(0,0))
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            pygame.display.update()
 
 '''print(games[0].display_info())
 image_function()'''
