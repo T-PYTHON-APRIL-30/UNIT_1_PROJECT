@@ -1,79 +1,24 @@
-# Import tkinter and simpledialog
-import tkinter as tk
-from tkinter import simpledialog
- 
-# Define the root window
-ROOT = tk.Tk()
- 
-# Define input dialog
-ROOT.withdraw()
- 
-# Define the input dialog
-USER_INP = simpledialog.askstring(
-    title="Input Test",
-    prompt="Type your Name?:") 
+# import
+from restaurant import Restaurant
+from cfonts import render, say
+import menu
 
-# Print the user input
-print("Hello", USER_INP)
+print(render('welcome to the restaurant', colors=['red', 'yellow'], align='center'))
 
+restaurant = Restaurant()
 
-
-
-
-
-# Import necessary modules
-import sys
-
-# Define the To-Do List class
-class ToDoList:
-    def __init__(self):
-        self.tasks = []
-    
-    def add_task(self, task):
-        self.tasks.append(task)
-    
-    def remove_task(self, task):
-        if task in self.tasks:
-            self.tasks.remove(task)
-    
-    def show_tasks(self):
-        if len(self.tasks) == 0:
-            print("No tasks found.")
-        else:
-            for i, task in enumerate(self.tasks):
-                print(f"{i+1}. {task}")
-    
-    def clear_tasks(self):
-        self.tasks = []
-
-# Define the main function
-def main():
-    # Create a new instance of the ToDoList class
-    todo_list = ToDoList()
-    
-    # Define the menu options
-    menu_options = {
-        "1": ("Add Task", lambda: todo_list.add_task(input("Enter task: "))),
-        "2": ("Remove Task", lambda: todo_list.remove_task(input("Enter task: "))),
-        "3": ("Show Tasks", lambda: todo_list.show_tasks()),
-        "4": ("Clear Tasks", lambda: todo_list.clear_tasks()),
-        "5": ("Exit", sys.exit),
-    }
-    
-    # Loop through the menu options until the user chooses to exit
-    while True:
-        print("\nTo-Do List\n")
-        
-        for key, value in menu_options.items():
-            print(f"{key}. {value[0]}")
-        
-        choice = input("\nEnter your choice: ")
-        
-        try:
-            menu_options[choice][1]()
-        
-        except KeyError:
-            print("Invalid choice. Please try again.")
-
-# Call the main function
-    main()
+# the main list
+while True:
+    print("\nmain list\n")
+    print("select: \n1: place an order \n2: view orders \n3: sort the menu \n4: exit")
+    choice = input("enter the number: ")
+    if choice == "1":
+        restaurant.take_order()
+    elif choice == "2":
+        restaurant.view_orders()
+    elif choice == "3":
+        restaurant.sorted_menu()
+    elif choice == "4":
+        break
+    else:
+        print("* enter valid number *")
