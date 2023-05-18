@@ -3,14 +3,13 @@ from restaurant import Restaurant
 from cfonts import render
 from termcolor import colored
 
-
 print(render('welcome to the restaurant', colors=['red', 'yellow'], align='center'))
 
 restaurant = Restaurant()
 
 # the main list
 while True:
-    print(colored('\nyou are in the main list', 'red'))
+    print(colored('\nyou are in the main list \U0001F921', 'red'))
     print(colored("select: \n1: place an order \n2: view orders \n3: sort the menu \n4: exit", 'yellow'))
     choice = input("enter the number: ")
     if choice == "1":
