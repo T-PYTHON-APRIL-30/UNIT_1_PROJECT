@@ -2,152 +2,202 @@
 from Store.fruit_file import Fruit_Object
 import random
 import sys
-#sys.path.append('d:\\PY\\UNIT_1_PROJECT\\Store\\Market.py')
+from Store.Customer import customer
+
 
 
 class Store:
+    #Customer1 = customer()
     def __init__(self,inventory=None,cart=None):
         self.__inventory = inventory or [Fruit_Object()]
         self.__cart = cart or [Fruit_Object()]
     
     def browse(self):
-        #for Fruit_Object in self.__inventory:
-            #print(Fruit_Object)
-        print("working")
+        list_browse = []
+        for Fruit_Object in self.__inventory:
+            list_browse.append(str(Fruit_Object))
+
+        for item in list_browse[1:]:
+            print(item)
+        return str(list_browse[1:])
+
 
     
-    def view_product_info(self,name):
+
+    
+    def view_product_info(self,name:str):
         try:
             for Fruit_Object in self.__inventory:
-                if Fruit_Object.__name.lower() == name.lower():
-                    print(Fruit_Object)
+                if str(Fruit_Object.get_name()).lower() == name.lower():
+                   founded_product = f"Here's the info on wanted product {str(Fruit_Object.get_name())}, Description: {str(Fruit_Object.get_description())}, Price: {Fruit_Object.get_price()}$"
+                   print(founded_product)
+                   return  founded_product
             else: 
-                raise ValueError(f"the product with name:{name} is not avaiable right now")
+                print(f"the product with name:{name} is not available right now")
+                raise ValueError(f"the product with name:{name} is not available right now")
         except Exception as e:
-            print(e)
+            return e
     
     
-    def search_for_product(self,keyword):
+    def search_for_product(self,keyword:str):
         try:
             for Fruit_Object in self.__inventory:
-                if Fruit_Object.__name == keyword or Fruit_Object.__description == keyword:
-                    print(f"item found an here's it's details: {Fruit_Object}")
+                if str(Fruit_Object.get_name()).lower() == keyword.lower() or str(Fruit_Object.get_description()).lower() == keyword.lower():
+                    searched_product = f" Product found and here's its details: {str(Fruit_Object)}"
+                    print(searched_product)
+                    return searched_product
             else:
-                raise ValueError(f"the product with name:{keyword} is not avaiable right now")
+                print(f"the product with name:{keyword} is not available right now")
+                raise ValueError(f"the product with name:{keyword} is not available right now")
         except Exception as e:
-            print(e)    
+            return e    
 
     
     def get_recommendations(self):
         if not self.__cart:
             print("cart is empty,try adding to the cart first to provide recommendation")
-            return
-        last_purchase = self.__cart[-1].__name
+            raise Exception("cart is empty,try adding to the cart first to provide recommendation")
+            
+        last_purchase = self.__cart[-1].get_name()
         recommended = []
         for Fruit_Object in self.__inventory:
-            if Fruit_Object.__name != last_purchase:
+            if str(Fruit_Object.get_name()).lower() != last_purchase:
                 recommended.append(Fruit_Object)
         if not recommended:
-            print("no recommendations available")
+            raise Exception("no recommendation available")
         else:
-            print("you might also like")
-            for Fruit_Object in random.sample(recommended,min(len(recommended)),3):
-                print(Fruit_Object)
+            for Fruit_Object in random.sample(recommended,len(recommended)):
+                recommended_fruit = f"Here's what we recommend: {str(Fruit_Object)}"
+                print(recommended_fruit)
+                return recommended_fruit
     
     
-    def add_product_to_cart(self,item):
+    def add_product_to_cart(self,item:str):
         try:
             for Fruit_Object in self.__inventory:
-                if Fruit_Object.__name.lower() == item.lower():
-                    self.__cart.append(item)
-                    print(f"{item} has been added to cart")
-                    return
+                if str(Fruit_Object.get_name()).lower() == item.lower():
+                    self.__cart.append(Fruit_Object)
+                    added_item = f"{item} has been added to cart"
+                    print(added_item)
+                    return added_item
+                    
             else:
+                print(f"{item} not found in inventory")
                 raise ValueError(f"{item} not found in the inventory")
         except Exception as e:
-            print(e)
+            return e
     
     
-    def remove_product_from_cart(self,item):
+    def remove_product_from_cart(self,item:str):
         try:
             if not self.__cart:
-                print("nothing in the cart to remove")
-                return
+                print("cart is empty")
+                raise Exception("cart is empty")
             else:
                 for Fruit_Object in self.__cart:
-                    if Fruit_Object.__name.lower() == item.lower():
+                    
+                    if str(Fruit_Object.get_name()).lower() == item.lower():
                         self.__cart.remove(Fruit_Object)
-                        print(f"{item} has been removed")
-                        return
+                        removed_product = f"{item} has been removed"
+                        print(removed_product)
+                        return removed_product
                 else:
-                    raise ValueError(f"{item} no in the cart to remove")
+                    print(f"{item} not in the cart to remove")
+                    raise ValueError(f"{item} not in the cart to remove")
         except Exception as e:
-            print(e)
+            return e
 
     
     def list_the_prodcuts(self):
         if not self.__cart:
             print("cart is empty")
-            return
+            raise Exception("cart is empty")
+            
         else:
-            print("the items in the cart:")
-            for Fruit_Object in self.__cart:
-                 print(Fruit_Object)
+            list_of_products_in_cart = f"\n -- \n"
+            for Fruit_Object in self.__cart[1:]:
+                list_of_products_in_cart += f" here's what in your cart: {Fruit_Object.get_name()}, Price: {Fruit_Object.get_price()}$"
+            print(list_of_products_in_cart)
+            return list_of_products_in_cart
     
     
     def checkout(self) -> bool:
         if not self.__cart:
             print("cart is empty")
-            return False
+            raise Exception("cart is empty")
         
-        total_price = sum(Fruit_Object.__price for Fruit_Object in self.__cart)
+        
+        total_price = sum(Fruit_Object.get_price() for Fruit_Object in self.__cart)
+        Customer2 = customer()
+        Customer2.text_to_speech(f"the total price is: {total_price}$")
         print(f"the total price is: {total_price}$")
         try:
-            shipping_address_input = input("enter your city and road respectivley:")
-            print("payment success")
-            import time
-            time.sleep(2)
-            print("Payment successful!")
-            print("Preparing shipment...")
-            time.sleep(2)
-            print(f"shipment to {shipping_address_input} is on ongoing, and here's the receipt")
-            receipt = f"Order Summary:\n ------- \n"
-            for Fruit_Object in self.__cart:
-                receipt += f"{Fruit_Object.__name}, Price:{Fruit_Object.__price}"
-            receipt += f"\n --- \n Total price:{total_price}$\n to {shipping_address_input}"
-            print(receipt)
-            self.__cart = []
+            Customer2.text_to_speech("enter your city and road respectivley the city is followed by a white space then road:")
+            shipping_address_input = input("enter your city and road respectivley the city is followed by a white space then road:")
+            if not shipping_address_input.isdigit():
+                Customer2.text_to_speech("initiating payment")
+                print("initiating payment")
+                import time
+                time.sleep(2)
+                Customer2.text_to_speech("Payment successfull")
+                print("Payment successful!")
+                Customer2.text_to_speech("Preparing shipment...")
+                print("Preparing shipment...")
+                time.sleep(2)
+                Customer2.text_to_speech(f"shipment to {shipping_address_input} is on ongoing, and here's the receipt")
+                print(f"shipment to {shipping_address_input} is on ongoing, and here's the receipt")
+                receipt = f"Order Summary: \n --- \n "
+                for Fruit_Object in self.__cart[1:]:
+                    receipt += f"{Fruit_Object.get_name()}, Price:{Fruit_Object.get_price()}$, "
+                receipt += f"\n --- \n Total price:{total_price}$ \n to {shipping_address_input}"
+                Customer2.text_to_speech(receipt)
+                print(receipt)
+                self.__cart = []
+            else:
+                Customer2.text_to_speech("must be string")
+                raise ValueError("must be string")
         except Exception as e:
-            print(e)
-    
+                print(e)
+
     
     def manager_adding_products_to_inventory(self,Fruit_Object:Fruit_Object):
-        self.__inventory = Fruit_Object
+        self.__inventory.append(Fruit_Object)
     def manager_removing_products_from_inventory(self,WantedFruit_Object:Fruit_Object):
         for Fruit_Object in self.__inventory:
             if Fruit_Object.__name == WantedFruit_Object.__name:
                 self.__inventory.remove(Fruit_Object)
                 return
+    def empyting_cart(self):
+        self.__cart = []
+
 
     
     def my_dec(func):
-        def wrapper():
-            print("it shows thr status depending on the situation of the order")
-            result = func()
-            print("sorry for any inconvience")
+        def wrapper(*args,**kwargs):
+            Customer3 = customer()
+            Customer3.text_to_speech("it shows the status depending on the situation of the order")
+            print("it shows the status depending on the situation of the order")
+            result = func(*args,**kwargs)
+            Customer3.text_to_speech("sorry for any inconvience")
+            print("sorry for any inconvenience")
             return result
         return wrapper
     
     
     @my_dec
     def check_delivery_status(self,word):
+        Customer4 = customer()
         word1 = ["ongoing","late","postponed"]
         if word.lower() == word1[0].lower():
+            Customer4.text_to_speech(word1[0])
             print(word1[0])
         if word.lower() == word1[1].lower():
+            Customer4.text_to_speech(word1[1])
             print(word1[1])
         if word.lower() == word1[2].lower():
+            Customer4.text_to_speech(word1[2])
             print(word1[2])
+
 
 
                       

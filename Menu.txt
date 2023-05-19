@@ -1,0 +1,14 @@
+Here's the options and how to select from them:
+Press 1 if you would like to browse the fruits section
+Press 2 if you would like to view the fruit's info of your choosing
+Press 3 if you would like to search for specific fruit, please provide either a name or description
+Press 4 if you would like to get our reccomenadations for you
+Press 5 if you would like to add the fruit to the cart
+Press 6 if you would like to remove the fruit to the cart
+Press 7 if you would like view your cart before making any purchases
+Press 8 for emptying the cart
+Press 9 for checkout
+Press 10 if you would like to view the delivery status for your order
+Press 11 if you would like a repeat of the narration of the menu 
+Press 12 to exit the program
+
