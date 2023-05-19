@@ -12,7 +12,7 @@ class User:
         self.seat_no=seat_no
 
     def display(self):
-        return f" TECKET NUMBER {self.tecket_no}| you trip :  ({self.from_city}) ==> ({self.to_city}) | \
+        return f" TECKET NUMBER {self.tecket_no}| you flight :  ({self.from_city}) ==> ({self.to_city}) | \
 AT {self.date} PASSENGERS : {self.Passengers} SEAT NUMBER : {self.seat_no} "
 
 
@@ -53,8 +53,8 @@ AT {self.date} PASSENGERS : {self.Passengers} SEAT NUMBER : {self.seat_no} "
 
 
 def find_history_user(user_name:str):
-    
 
+    
     with open("user.json") as read:
         obj = json.load(read)
       
@@ -68,4 +68,4 @@ AT {fill["date"]} PASSENGERS : {fill["passengers"]} SEAT NUMBER : {fill["seat_no
             else:
                 print("there are no recods")
 
-find_history_user("@khalid")
+

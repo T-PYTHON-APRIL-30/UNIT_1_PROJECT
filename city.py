@@ -9,9 +9,9 @@ def show_distanc(city1:str,city2:str):
 
     loc1=((l1.latitude,l1.longitude))
     loc2=((l2.latitude,l2.longitude))
-    return f"{round(distance.distance(loc1,loc2).km)} km"
+    return round(distance.distance(loc1,loc2).km)
 
-print("the distance is : "+show_distanc("abha","tabuk"))
+#print("the distance is : "+show_distanc("abha","jeddah"))
 
 api_key = '30d4741c779ba94c470ca1f63045390a'
 def is_city(city):
@@ -31,7 +31,8 @@ def fech_wetaher(city):
 
     weather = weather_data.json()['weather'][0]['main']
     temp = round(weather_data.json()['main']['temp'])
-    list1=[weather,round((temp-32)/1.8)]
-    return list1
+    
+    print(f"WEATHER : {weather} | fech_wetaher: {round((temp-32)/1.8)} c")
+    
 
-print(fech_wetaher("abha"))
+
