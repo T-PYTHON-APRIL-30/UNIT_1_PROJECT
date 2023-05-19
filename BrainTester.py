@@ -156,9 +156,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    #life = lambda life: life -1
-                    #life = lambda : life - 1
-                    life -= 1
+                    lifeDecrement = lambda life: life -1
+                    life = lifeDecrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {generalQ[question]}')
                     print(Style.RESET_ALL)
@@ -166,7 +165,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                life -= 1
+                lifeDecrement = lambda life: life -1
+                life = lifeDecrement(life)
                 wrong(life)
 
 
@@ -209,8 +209,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    #life = lambda life: life -1
-                    life -= 1
+                    lifeDecrement = lambda life: life -1
+                    life = lifeDecrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {historicalQ[question]}')
                     print(Style.RESET_ALL)
@@ -218,7 +218,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                life -= 1
+                lifeDecrement = lambda life: life -1
+                life = lifeDecrement(life)
                 wrong(life)
 
         elif choice == 3:
@@ -260,8 +261,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    #life = lambda life: life -1
-                    life -= 1
+                    lifeDecrement = lambda life: life -1
+                    life = lifeDecrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {scientificQ[question]}')
                     print(Style.RESET_ALL)
@@ -269,7 +270,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                life -= 1
+                lifeDecrement = lambda life: life -1
+                life = lifeDecrement(life)
                 wrong(life)
 
 
@@ -311,8 +313,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    #life = lambda life: life -1
-                    life -= 1
+                    lifeDecrement = lambda life: life -1
+                    life = lifeDecrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {geographicalQ[question]}')
                     print(Style.RESET_ALL)
@@ -320,7 +322,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                life -= 1
+                lifeDecrement = lambda life: life -1
+                life = lifeDecrement(life)
                 wrong(life)
 
         elif choice == 5:
