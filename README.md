@@ -17,7 +17,7 @@
 
 #### As a user I should be able to do the following :
 - Choose a catogry of question.
-- Answering a random question from the chosen catogry. 
+- Answering a random question from the chosen catogry in 15 seconds.
 - check the answer if it is correct or incorrect.
 - The user can exit the game when he want.
 - Show the result after he exit the game.
