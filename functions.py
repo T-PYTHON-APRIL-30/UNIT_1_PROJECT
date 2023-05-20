@@ -12,49 +12,65 @@ def resh (par1):
 
 def log_in_ar ():
     while True:
-        print (resh("ادخل اسمك بالانجليزية"))
-        user_name_ar = input()
-        if user_name_ar != user1.name:
+        try:
+            print("\n")
+            print (resh("ادخل اسمك بالانجليزية"))
+            name_input_ar = input()
+            user1.name[name_input_ar]  
+        except KeyError:
             print(resh("الاسم المدخل غير صحيح"))
         else:
             break
 
     while True:
-        print(resh("ادخل كلمة المرور"))
-        user_password_ar = int(input())
-        if user_password_ar == user1.get_password():
-            print(resh("مرحبا بعودتك")) 
-            print(f"{user1.name}")
-            break
+        try:
+            print("\n")
+            print(resh("ادخل كلمة المرور"))
+            passwprd_input_ar = int(input())
+            user1.get_password()[passwprd_input_ar]
+        except KeyError:
+            print(resh(f"كلمة المرور غير صحيحة")) 
         else:
-            print(resh(f"كلمة المرور غير صحيحة"))      
+            print(resh("مرحبا بعودتك"))
+            for i in user1.name.items():
+                if name_input_ar == i:
+                    return name_input_ar
+            print(f"{name_input_ar}")
+            break  
+
     return 
 
-def add_progress_ar():
-    file_ar = open("my_track_ar.txt","a",encoding="utf-8")
-    file_ar.write("\n"+input(resh("مالذي تريد اضافته ؟")))
-    file_ar.close()
-    return
+################################################################
+def add_progress_ar():                                         #
+    file_ar = open("my_track_ar.txt","a",encoding="utf-8")     #
+    file_ar.write("\n"+input(resh("مالذي تريد اضافته ؟")))    #
+    file_ar.close()                                            #
+    return                                                     #
 
-def progress_check_ar():
-    file_ar = open("my_track_ar.txt","r",encoding="utf-8")
-    cont_ar = file_ar.read()
-    print(resh(cont_ar))
-    file_ar.close()
-    return
+def progress_check_ar():                                       #
+    file_ar = open("my_track_ar.txt","r",encoding="utf-8")     #
+    cont_ar = file_ar.readlines()                              #
+    for i in cont_ar:                                          #
+        print(resh(str(i)))                                    #
+    file_ar.close()                                            #
+    return                                                     #
+################################################################
 
-def add_absent_ar():
-    file_ar = open("absents_ar.txt","a",encoding="utf-8")
-    file_ar.write("\n"+input(resh("مالذي تريد اضافته ؟")))
-    file_ar.close()
-    return
+################################################################
+def add_absent_ar():                                           #
+    file_ar = open("absents_ar.txt","a",encoding="utf-8")      #
+    file_ar.write("\n"+input(resh("مالذي تريد اضافته ؟")))    #
+    file_ar.close()                                            #
+    return                                                     #
 
-def absents_check_ar():
-    file_ar = open("absents_ar.txt","r",encoding="utf-8")
-    cont_ar = file_ar.read()
-    print(resh(cont_ar))
-    file_ar.close()
-    return
+def absents_check_ar():                                        #
+    file_ar = open("absents_ar.txt","r",encoding="utf-8")      # 
+    cont_ar = file_ar.readlines()                              #
+    for i in cont_ar:                                          #
+        print(resh(str(i)))                                    #
+    file_ar.close()                                            #
+    return                                                     #
+################################################################
 
 def progress_options_ar():
     while True:
@@ -70,7 +86,7 @@ def progress_options_ar():
             print(resh("تم الخروج من خيارات التقدم"))
             break
             
-    return ""
+    return " "
 
 def absents_options_ar():
     while True:
@@ -85,7 +101,7 @@ def absents_options_ar():
             print("\n")
             print(resh("تم الخروج من خيارات الغياب"))
             break
-    return ""
+    return " "
 
 
 #______________________________________________English________________________________________________________________
@@ -93,46 +109,61 @@ def absents_options_ar():
 
 def log_in ():
     while True:
-        user_name = input("Enter your name: ")
-        if user_name != user1.name:
-            print("Incorrct name try again!")
+        try:
+            print("\n")
+            print (("Enter your name"))
+            name_input = input()
+            user1.name[name_input]  
+        except KeyError:
+            print(("The name is incorrect"))
         else:
             break
 
     while True:
-        user_password = int(input("Enter your password: "))
-        if user_password == user1.get_password():
-            print(f"Welcome back {user1.name}") 
-            break
+        try:
+            print("\n")
+            print(("Enter your password"))
+            passwprd_input_ar = int(input())
+            user1.get_password()[passwprd_input_ar]
+        except KeyError:
+            print("The password is incorrect") 
         else:
-            print("The password is incorrect")        
+            for i in user1.name.items():
+                if name_input == i:
+                    return name_input
+            print(f"Welcome back {name_input}")
+            break       
     return 
 
-def add_progress():
-    file = open("my_track.txt","a",encoding="utf-8")
-    file.write("\n"+input("What do you want to add?"))
-    file.close()
-    return
+############################################################
+def add_progress():                                        #
+    file = open("my_track.txt","a",encoding="utf-8")       #
+    file.write("\n"+input("What do you want to add?"))     #
+    file.close()                                           #
+    return                                                 #
 
-def progress_check():
-    file = open("my_track.txt","r",encoding="utf-8")
-    cont = file.read()
-    print(cont)
-    file.close()
-    return
+def progress_check():                                      #
+    file = open("my_track.txt","r",encoding="utf-8")       #
+    cont = file.read()                                     #
+    print(cont)                                            #
+    file.close()                                           #
+    return                                                 #
+############################################################
 
-def add_absent():
-    file = open("absents.txt","a",encoding="utf-8")
-    file.write("\n"+input("What do you want to add?"))
-    file.close()
-    return
+###########################################################
+def add_absent():                                         #
+    file = open("absents.txt","a",encoding="utf-8")       #
+    file.write("\n"+input("What do you want to add?"))    #
+    file.close()                                          #
+    return                                                #
 
-def absents_check():
-    file = open("absents.txt","r",encoding="utf-8")
-    cont = file.read()
-    print(cont)
-    file.close()
-    return
+def absents_check():                                      #
+    file = open("absents.txt","r",encoding="utf-8")       #
+    cont = file.read()                                    #
+    print(cont)                                           #
+    file.close()                                          #
+    return                                                #
+###########################################################
 
 def progress_options():
     while True:
@@ -145,7 +176,7 @@ def progress_options():
             print("Leaving progress options")
             break
         
-    return ""
+    return " "
 
 def absents_options ():
     while True:
@@ -157,7 +188,4 @@ def absents_options ():
         elif user_inp3 == 'e':
             print("Leaving absent options")
             break
-    return ""
-
-option1 = progress_options
-option2 = absents_options
+    return " "
