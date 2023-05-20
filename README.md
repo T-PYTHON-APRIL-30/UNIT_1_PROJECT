@@ -1,32 +1,16 @@
-# Animition Program
 
-## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
 
-- Must be interactive on CLI.
-- Use lists or dictionaries or tuples. 
-- Use loops.
-- Use functions that return an output . 
-- Use a Lambda function.
-- Use at least 1 Class.
-- Use some form of Error Handling .
-- Organize Your Code into modules & (or packages)
+##  Project :  An Animation online project
 
-## Example Project :  An online Grocery Store :
-
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+#### Overview : An online project for young and old, this store provides you with viewing your favorite anime and listening to your favorite songs for each anime.
 
 #### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
+- Browse  the movie clasification . 
+- List the movie classes (Action, Comedy, Drama)
+- Search about movie details.
+- Select any Movie.
+- Select a movie song and listen to it.
+- Choose between leaving the site or staying.
 
 
 
