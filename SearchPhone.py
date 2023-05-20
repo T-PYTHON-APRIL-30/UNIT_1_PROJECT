@@ -2,20 +2,24 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
+import random
 
 class Checkphone:
     def __init__(self,phone):
         self.phone= phone
-        # set a browser
+        # setup a browser
         options = Options()
+        user_agents = [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0",
+        ]
         profile = webdriver.FirefoxProfile()
+        profile.set_preference("general.useragent.override",random.choice(user_agents))
         profile.set_preference("browser.privatebrowsing.autostart", True)
-        options.add_argument('-headless')
-        options.binary_location = r"C:\Program Files\Mozilla Firefox/firefox.exe"
+        options.add_argument("-headless")
         self.driver = webdriver.Firefox(options=options, firefox_profile=profile, executable_path="C:/geckodriver.exe")
         self.driver.implicitly_wait(2)
         self.driver.delete_all_cookies()
-        sleep(0.5)
 
     def twitter_checker(self):
         self.driver.get('https://twitter.com/i/flow/signup')
@@ -29,10 +33,25 @@ class Checkphone:
             message = self.driver.find_element(By.XPATH,"/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div[2]/div/div/div/div/span")
             used = "This number is already in use with other accounts. Please use another."
             if message.text == used:
-                print(f"Twitter : Found...")
-
+                print(f"Twitter : has more than one account")
         except:
-            print("Twitter : Not Found ...")
+            try:
+                self.driver.get("https://twitter.com/i/flow/password_reset?input_flow_data=%7B%22requested_variant%22%3A%22eyJwbGF0Zm9ybSI6IlJ3ZWIifQ%3D%3D%22%7D")
+                sleep(0.7)
+                post = self.driver.find_element(By.XPATH,'//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/label/div/div[2]/div/input')
+                post.send_keys(self.phone)
+                sleep(0.1)
+                click=self.driver.find_element(By.XPATH,'//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div/div')
+                click.click()
+                sleep(0.1)
+                verf = self.driver.find_element(By.XPATH, '//*[@id="modal-header"]/span/span').text
+                mess = "Confirm your username"
+                if verf == mess:
+                    print("Twitter : Found ...")
+                else:
+                    print("Twitter : Not Found ...")
+            except Exception as e:
+                print(f"An error occurred: {e}")
 
 
     def name_checker(self):
@@ -45,7 +64,6 @@ class Checkphone:
             name = self.driver.find_element(By.ID, 'result').text
             if name == name:
                 print(f"Name is : {name}\n")
-
             else:
                 no_result = self.driver.find_element(By.XPATH, "/html/body/main/div/div/div/div[2]/div/li")
                 message = "لا يوجد نتائج"
@@ -62,7 +80,7 @@ class Checkphone:
         sleep(0.3)
         self.driver.find_element(By.ID,"did_submit").click()
         sleep(0.2)
-        #try to check if this number is sign up or available
+        #try to check if this number is signup or available
         try:
             error= "No Search Results"
             chek= self.driver.find_element(By.XPATH,"/html/body/div[1]/div[1]/div[1]/div/div[2]/div/div/form/div/div[2]/div[1]/div[1]").text
@@ -70,7 +88,7 @@ class Checkphone:
                 print(f"FaceBook : Not Found ...")
                 sleep(0.2)
         except:
-            print(f"\nFaceBook : Found...")
+            print(f"FaceBook : Found...")
         self.driver.close()
 
     def microsoft_checker(self):
@@ -90,8 +108,6 @@ class Checkphone:
                 next = self.driver.find_element(By.XPATH, "//*[@id='idSIButton9']")
                 next.click()
                 sleep(2)
-            else:
-                print("")
             sleep(0.9)
             result = self.driver.find_element(By.XPATH, '//*[@id="usernameError"]').text
             usererror = "This phone number does not exist as a username. Please check if your number is correct."

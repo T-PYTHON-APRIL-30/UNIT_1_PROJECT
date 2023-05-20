@@ -1,43 +1,29 @@
-# UNIT_1_PROJECT
+# PhoneXChecker
 
-## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
+## is a powerful tool that enables users to retrieve data from a specific mobile number or a group of mobile numbers,This includes the owner's name and verifications of associations with social media platforms such as Twitter, Facebook, and Microsoft
 
-- Must be interactive on CLI.
-- Use lists or dictionaries or tuples. 
-- Use loops.
-- Use functions that return an output . 
-- Use a Lambda function.
-- Use at least 1 Class.
-- Use some form of Error Handling .
-- Organize Your Code into modules & (or packages)
 
-## Example Project :  An online Grocery Store :
+## Description
+This tool is built using Selenium, a popular web scraping library, and it has two types of inputs:
+- A specific mobile number.
+- A group of mobile numbers stored in a .txt file.
+#### PhoneXChecker is perfect for anyone who needs to cross-reference phone numbers with social media platforms quickly and efficiently.
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+## Features
+- Retrieves the mobile number data and the name of the number's owner.
+- Verifies the number's association with Twitter, Facebook, and Microsoft.
+- Supports specific numbers or a group of numbers.
 
-#### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
+## Dependencies
+- Selenium
+- Geckodriver (for Firefox)
+
 
 
 
 #### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
 
+- pip install -r requirements.txt
+- python PhoneXChecker.py
 
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+ 

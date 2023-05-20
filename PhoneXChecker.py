@@ -9,7 +9,7 @@ def print_text_art(text, font, color):
     colored_text_art = colored(text_art, color)
     print(colored_text_art)
 
-print_text_art("PhoneNum-Checker ", "starwars", 'red')
+print_text_art("PhoneXChecker ", "starwars", 'red')
 
 #User InterFace
 print("Please select an option:\n")
@@ -21,12 +21,12 @@ try:
     if option == 1:
         Singlphone=(input("Enter the phone number:-  "))
         userinput=Checkphone(Singlphone.split())
-        print(f"Phone Number is : {Singlphone}\n")
-        userinput.name_checker()
-        userinput.twitter_checker()
-        userinput.facebook_checker()
         userinput1 = Checkphone(Singlphone[3:])
-        userinput1.microsoft_checker()
+        print(f"Phone Number is : {Singlphone}\n")
+        print("\n")
+        execute = [userinput.name_checker, userinput.twitter_checker, userinput.facebook_checker, userinput1.microsoft_checker]
+        execute_script = lambda func: func()
+        list(map(execute_script, execute))
 
 
 
@@ -35,11 +35,8 @@ try:
         for line in phone_checker:
             print(f"Phone Number is : {line}\n")
             multi =Checkphone(line.split())
-            multi.name_checker()
-            multi.twitter_checker()
-            multi.facebook_checker()
-            cut_num= Checkphone(line[3:])
-            cut_num.microsoft_checker()
+            cut_num = Checkphone(line[3:])
+            execute= [multi.name_checker(),multi.twitter_checker(),multi.facebook_checker(),cut_num.microsoft_checker()]
             print("---"*5)
 
     else:
