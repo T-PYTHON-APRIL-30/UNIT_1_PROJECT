@@ -1,5 +1,11 @@
 import time
 
+class Answer:
+    def __init__(self,answer:str):
+        self.answer = answer
+    def correctAnswer(self):
+        return print(f"\n\tThe correct naswer is ( {self.answer} ).\n")
+
 def rules():
     '''This function explains the rules of the game to the player'''
     print("\n\tThis is the rules:")
@@ -11,7 +17,7 @@ def rules():
 
 def cheackTime(time:float):
     '''This function makes sure that the time is less than or equal to 30 seconds, otherwise 0.25 points will be deducted.'''
-    if time < 5.0 :
+    if time <= 10.0 :
         print(f"\n\tThat was fast ! You takes only {time} seconds.\n")
     elif time > 30.0 :
         print(f"\n\tThat was late ! You takes {time} seconds.\n")
@@ -22,9 +28,9 @@ def cheackScore(total:float,time:float):
     '''This function verifies the result and displays the appropriate answer for the score along with the final score'''
     if time > 30.0 :
         total -= 0.25
+    
     if 0.0 >= total:
-        total = 0
-        print(f"\n\tBad luck ! You got {total}/5 !\n")
+        print(f"\n\tBad luck ! You didn't get any answer correct!\n")
     elif 0.0 < total < 2.0 :
         print(f"\n\tUmmm ! You got {total}/5 !\n")
     elif 2.0 <= total < 4.0 :
@@ -45,24 +51,30 @@ def countingThree():
 
 def pointsDeduction (score:float,hintUsed:int,timeTaken:float):
     '''This function displays your result before the discount and explains the reason for the discount.'''
-    if hintUsed == 1 :
-        score+= 0.25
-        if timeTaken > 30.0 :
-            #score+= 0.25
-            print(f"\nYour score was {score} but you used 1 hints (0.25) and you was late (0.25).\n")
-        else:
-            print(f"\nYour score was {score} but you used 1 hints (0.25).\n")
-    elif hintUsed == 2:
-        score+= 0.5
-        if timeTaken > 30.0 :
-            #score+= 0.25
-            print(f"\nYour score was {score} but you used 2 hints (0.5) and you was late (0.25).\n")
-        else:
-            print(f"\nYour score was {score} but you used 2 hints (0.5).\n")
-    elif hintUsed == 3:
-        score+= 0.75
-        if timeTaken > 30.0 :
-            #score+= 0.25
-            print(f"\nYour score was {score} but you used 3 hints (0.75) and you was late (0.25).\n")
-        else:
-            print(f"\nYour score was {score} but you used 3 hints (0.75).\n")
+    late = 0.25
+    hint = 0.25
+    deduction = float(hintUsed*hint)
+    if score > 0 :
+        if hintUsed == 1 :
+            score+= deduction
+            if timeTaken > 30.0 :
+                print(f"\nYour score was {score} but you used {hintUsed} hint ({deduction}) and you were late ({late}).\n")
+            else:
+                print(f"\nYour score was {score} but you used {hintUsed} hint ({deduction}).\n")
+    
+        elif hintUsed == 2:
+            score+= deduction
+            if timeTaken > 30.0 :
+                print(f"\nYour score was {score} but you used {hintUsed} hints ({deduction}) and you were late ({late}).\n")
+            else:
+                print(f"\nYour score was {score} but you used {hintUsed} hints ({deduction}).\n")
+    
+        elif hintUsed == 3:
+            score+= deduction
+            if timeTaken > 30.0 :
+                print(f"\nYour score was {score} but you used {hintUsed} hints ({deduction}) and you were late ({late}).\n")
+            else:
+                print(f"\nYour score was {score} but you used {hintUsed} hints ({deduction}).\n")
+    
+        elif timeTaken > 30.0 :
+                print(f"\nYour score was {score} but you were late ({late}).\n")

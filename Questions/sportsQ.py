@@ -1,11 +1,6 @@
-from manager import cheackScore , cheackTime , pointsDeduction
+from manager import cheackScore , cheackTime , pointsDeduction , Answer
 from functools import reduce
 import time
-class Answer:
-    def __init__(self,answer:str):
-        self.answer = answer
-    def correctAnswer(self):
-        return print(f"\nWrong Guess...\n\tThe correct naswer is ( {self.answer} ).\n")
     
 class Hint(Answer):
     def __init__(self, answer: str) :
@@ -22,67 +17,74 @@ class Hint(Answer):
     def hintThree(self):
         return print("\n\tMy country are famous in spaghetti!\n")
 
-answer1 = Hint("Cristiano Ronaldo")
-answer2 = Hint("Real Madrid")
-answer3 = Hint("Italy")
+questionOneAnswer = Hint("Cristiano Ronaldo")
+questionTwoAnswer = Hint("Real Madrid")
+questionThreeAnswer = Hint("Italy")
 
 def puzzle():
+    '''This function will display the questions of the game'''
     score = [0]
     hintCounter = 0
     start = time.time()
     print("\n\tI'm well known worldwide and play in an Saudi leage!\n")
     print("Who am I?")
-    guess1 = input("[ 'M' -> Mohammed Noor - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\n'h' -> For a hint\nEnter: ").lower()
-    if guess1 == "c":
+    firstGuess = input("[ 'M' -> Mohammed Noor - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\n'h' -> For a hint\nEnter: ").lower()
+    if firstGuess == "c":
         score.append(1.5)
-    elif guess1 == "h":
+    elif firstGuess == "h":
         score.append(-0.25)
         hintCounter+=1
-        answer1.hintOne()
+        questionOneAnswer.hintOne()
         print("Who am I?")
-        guess1h = input("[ 'M' -> Mohammed Noor - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\nEnter: ").lower()
-        if guess1h == "c":
+        firstHintGuess = input("[ 'M' -> Mohammed Salah - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\nEnter: ").lower()
+        if firstHintGuess == "c":
             score.append(1.5)
-        elif guess1h != "c":
-            answer1.correctAnswer()
-    elif guess1 != "c" and guess1 != "h":
-        answer1.correctAnswer()
+        elif firstHintGuess != "c":
+            print("\nWrong Guess...")
+            questionOneAnswer.correctAnswer()
+    elif firstGuess != "c" and firstGuess != "h":
+        print("\nWrong Guess...")
+        questionOneAnswer.correctAnswer()
 
     print("\n\tI have the most championsleague!\n")
     print("Who am I?")
-    guess2 = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\n'h' -> For a hint\nEnter: ").lower()
-    if guess2 == "r":
+    secondGuess = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\n'h' -> For a hint\nEnter: ").lower()
+    if secondGuess == "r":
         score.append(1.5)
-    elif guess2 == "h":
+    elif secondGuess == "h":
         score.append(-0.25)
         hintCounter+=1
-        answer2.hintTwo()
+        questionTwoAnswer.hintTwo()
         print("Who am I?")
-        guess2h = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\nEnter: ").lower()
-        if guess2h == "r":
+        secondHintGuess = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\nEnter: ").lower()
+        if secondHintGuess == "r":
             score.append(1.5)
-        elif guess2h != "r":
-            answer2.correctAnswer()
-    elif guess2 != "r" and guess2 != "h":
-        answer2.correctAnswer()
+        elif secondHintGuess != "r":
+            print("\nWrong Guess...")
+            questionTwoAnswer.correctAnswer()
+    elif secondGuess != "r" and secondGuess != "h":
+        print("\nWrong Guess...")
+        questionTwoAnswer.correctAnswer()
         
     print("\n\tI won the 2006 worldcup!\n")
     print("Who am I?")
-    guess3 = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\n'h' -> For a hint\nEnter: ").lower()
-    if guess3 == "i":
+    thirdGuess = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\n'h' -> For a hint\nEnter: ").lower()
+    if thirdGuess == "i":
         score.append(2)
-    elif guess3 == "h":
+    elif thirdGuess == "h":
         score.append(-0.25)
         hintCounter+=1
-        answer3.hintThree()
+        questionThreeAnswer.hintThree()
         print("Who am I?")
-        guess3h = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\nEnter: ").lower()
-        if guess3h == "i":
+        thirdHintGuess = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\nEnter: ").lower()
+        if thirdHintGuess == "i":
             score.append(2)
-        elif guess3h != "i":
-            answer3.correctAnswer()
-    elif guess3 != "i" and guess3 != "h":
-        answer3.correctAnswer()
+        elif thirdHintGuess != "i":
+            print("\nWrong Guess...")
+            questionThreeAnswer.correctAnswer()
+    elif thirdGuess != "i" and thirdGuess != "h":
+        print("\nWrong Guess...")
+        questionThreeAnswer.correctAnswer()
         
     end = time.time()
     timeTaken = round((end - start),2)
