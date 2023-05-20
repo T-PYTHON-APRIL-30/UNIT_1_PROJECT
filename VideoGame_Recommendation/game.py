@@ -6,10 +6,10 @@ class VideoGame:
         self.platform= platform
         self.url=url
     
-    def display_information(self):
-        return f"{self.title} ({self.genre}) - Rating: {self.rating} - Platform: {self.platform}"
+    def display_information(self,platform:str)->str:
+        return f"{self.title} ({self.genre}) - Rating: {self.rating} - Platform: {platform.upper()}"
     
-games =[
+games:list =[
     VideoGame("call of duty:Modern Warfare2","Shooter",9.0 ,["PC","PlayStation","Xbox"],r'D:/dawnlaodd/images/callofduty.png'),
     VideoGame("Overwatch","Shooter",8.5 ,["PC","PlayStation","Xbox","Nintendo Switch"],r'D:/dawnlaodd/images/overwhatch.png'),
     VideoGame("Halo Infinite","Shooter",8.7 ,["PC","Xbox"],r'D:/dawnlaodd/images/haloinfinite.png'),
@@ -28,12 +28,7 @@ games =[
     VideoGame("Crash Bandicoot N. Sane Trilogy","Platformer",8.0,["PlayStation","Xbox"],r'D:/dawnlaodd/images/Crash.png') 
 ]
 
+platform_list:list= ["PC","PlayStation","Xbox","Nintendo Switch"]
 
-'''from PIL import Image                                                                                
-img = Image.open('D:\dawnlaodd\callOfDutyPoster.png')
-img.show() 
-pygame.init()'''
+genre_list:list=["Shooter","Narrative","Sports","Platformer"]
 
-
-'''print(games[0].display_info())
-image_function()'''
