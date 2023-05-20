@@ -1,13 +1,13 @@
 '''
 List to-do:
-Use a Lambda function.
-Use some form of Error Handling .
+Change README file
 design a nicer welcomming
 
+Use some form of Error Handling: DONE
+Use a Lambda function: DONE
 ask for staying days and print suggested plan for each day: DONE
 Use at least 1 Class: DONE
 Organize Your Code into modules & (or packages): DONE
-
 '''
 from destination import Destination
 
@@ -18,53 +18,60 @@ def welcoming():
     print("-"*40)
     print("We are here to help you plan your holiday based on your preferences\n")
 
-
-
 welcoming()
 
-cities=["Riyadh","Jeddah","Alula","Dammam"]
-atrractions ={"Riyadh":{"breakfast":"Chapter","activity":"Hiking","lunch":"Full of","coffee shop":"Mkth","dinner":"San Carlo","info":""},
-              "Jeddah":{"breakfast":"","activity":"","lunch":"","coffee shop":"","dinner":""},
-              "Alula":{"breakfast":"","activity":"","lunch":"","coffee shop":"","dinner":""},
-              "Dammam":{"breakfast":"","activity":"","lunch":"","coffee shop":"","dinner":""},}
-def trend_cities():
-    #this function print the cities for user to choose and then print a suggested plan
-    for city in cities:
+
+cities=["Riyadh","Jeddah","Alula","Dammam","AlAhsa","Taif"]
+def trend_cities(cities):
+    trend = filter(lambda x:cities.index(x)< 4,cities)
+    trend_list =[city for city in trend]
+   
+    return trend_list
+
+def choose_city():
+    for city in cities[4:]:
         print("+ "+city)
     print("\n")
     user_input = input("choose a city: ")
     print("\n")
     if user_input in cities:
         print(f"You chose a {user_input}")
-        days = int(input("How many days you plan to stay? "))
-        trip_planner = Destination(user_input, days)
-        trip_planner.plan_trip()
+        while True:
+            try:
+                days = int(input("How many days you plan to stay? "))
+                if days <= 0:
+                    raise ValueError("Please enter a positive integer value for the number of days.\n")
+                trip_planner = Destination(user_input, days)
+                trip_planner.plan_trip()
+                break
+            except ValueError as e:
+               print(str(e))
         
 
-def view_all():
+def city_info(city):
     for city in cities:
         print("+ "+city)
     print("\n")
-
-def choose_city(city):
-    if city in cities:
-        print(f"Here a suggested plan for {city}:")
-        print(f'- Breakfast:{atrractions["Riyadh"]["breakfast"]}\n- Activity of the day:{atrractions["Riyadh"]["activity"]}\n- Lunch:{atrractions["Riyadh"]["lunch"]}\n- Coffee of the day:{atrractions["Riyadh"]["coffee shop"]}\n- Dinner:{atrractions["Riyadh"]["dinner"]}\n')
     
 
 def search_city(city):
     if city in cities:
-        print(f"{city} plans\n")
+        print(f"You chose a {city}")
+        while True:
+            try:
+                days = int(input("How many days you plan to stay? "))
+                if days <= 0:
+                    raise ValueError("Please enter a positive integer value for the number of days.\n")
+                trip_planner = Destination(city, days)
+                trip_planner.plan_trip()
+                break
+            except ValueError as e:
+                print(str(e))
     else:
-        print(f"This city not available yet\n")
+        print(f"This city plans aren't available yet\n")
 
-'''def city_info(city):
-    if city in cities:
-        print(atrractions["Riyadh"]["info"])
-    else:
-        print("This city not available yet")'''
 
-def exper_city():
+def city_experience():
     num = 0
     print("\nBest experiences and tours:")
     print("1.Four days in Riyadh")
@@ -72,20 +79,27 @@ def exper_city():
     print("3.Two days in Taif")
     print("4.One day in Jeddah")
     print("\n")
-    num = int(input("Choose your experiences:"))
-    if num == 1:
-        days = 4
-        trip_planner = Destination("Riyadh", days)
-        trip_planner.plan_trip()
-    elif num == 2:
-        trip_planner = Destination("AlAhsa", 2)
-        trip_planner.plan_experience()
-    elif num == 3:
-        trip_planner = Destination("Taif", 2)
-        trip_planner.plan_experience()
-    elif num == 4:
-        trip_planner = Destination("Jeddah", 1)
-        trip_planner.plan_trip()
+    while True:
+        try:
+            num = int(input("Choose your experiences: "))
+            if num <= 0 or num > 4:
+                raise ValueError("Please Choose a Number Between (1-4)\n") 
+            if num == 1:
+                days = 4
+                trip_planner = Destination("Riyadh", days)
+                trip_planner.plan_trip()
+            elif num == 2:
+                trip_planner = Destination("AlAhsa", 2)
+                trip_planner.plan_experience()
+            elif num == 3:
+                trip_planner = Destination("Taif", 2)
+                trip_planner.plan_experience()
+            elif num == 4:
+                trip_planner = Destination("Jeddah", 1)
+                trip_planner.plan_trip()
+            break
+        except ValueError as e:
+                print(str(e))     
     
 
 
@@ -99,23 +113,26 @@ while choice != 4:
 
     if choice == 1:
         print("\nTrending Destination: ")
-        trend_cities()
+        for trend in trend_cities(cities):
+            print("+ "+trend)
+        print("\nExplore Destinations: ")
+        choose_city()
 
     elif choice == 2:
-        exper_city()
+        city_experience()
         #print suggested attractions
         #Do you want to add the plan?
         # if yes save it in a txt file
-        #if No break
+        #if No back
        
     elif choice == 3:
-        print("search")
+        print("Search a City")
         input_city = input("\nType a saudi city: ")
         search_city(input_city)
      #print information about the choosen city 
         #print suggested attractions or plan
         #Do you want to add the plan?
         # if yes save it in a txt file
-        #if No break
+        #if No back 
 
 
