@@ -11,33 +11,25 @@
 - Use some form of Error Handling .
 - Organize Your Code into modules & (or packages)
 
-## Example Project :  An online Grocery Store :
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+## Project name: Video Game Recommendation System
 
-#### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
+#### Overview : A system for suggesting video games based on the criteria of the user (the gamer). The user must answer some questions in order for the system to know its requirements and then display a list of suggested games.
 
+#### As a user I should be able to do the following :
+-Determined my criteria for games (rating, genre, my platform)
+-Get recommended games based on my criteria
+-Get more information about a specific game from recommended games
+-Search for other games again
 
 
 #### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
+-Type in the genre from the following list: Shooter, Narrative, Sports, or Platformer
+-Type in the minimum rating (out of 10)
+-Type in the platform from the following list: PC, PlayStation, Xbox, Nintendo Switch
+-If you want more information about the recommended games; type in 'y' for yes or 'n' for no
+-Type in the title of the game you want more information about it (from the recommended games list)
+-If you want to search for other games; type in 'y' for yes or 'n' for no
 
 
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+

@@ -1,3 +1,6 @@
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 class VideoGame:
     def __init__(self, title:str, genre:str, rating:float, platform:list,url:str) :
         self.title =title
@@ -7,7 +10,7 @@ class VideoGame:
         self.url=url
     
     def display_information(self,platform:str)->str:
-        return f"{self.title} ({self.genre}) - Rating: {self.rating} - Platform: {platform.upper()}"
+        return f"{Fore.MAGENTA}{self.title} {Fore.YELLOW}({self.genre}){Fore.MAGENTA} - Rating:{Fore.YELLOW} {self.rating}{Fore.MAGENTA} - Platform:{Fore.YELLOW} {platform.upper()}"
     
 games:list =[
     VideoGame("call of duty:Modern Warfare2","Shooter",9.0 ,["PC","PlayStation","Xbox"],r'D:/dawnlaodd/images/callofduty.png'),

@@ -1,25 +1,28 @@
+import colorama
+from colorama import Fore, Back, Style
 from game import *            
 from functions import *
+colorama.init(autoreset=True)
 
 def recommend_game():
     flag:bool=True
     while flag:
         try:
-            print("\nWelcome to the Video Game Recommendation System!")
-            print("Please answer a few questions to help us recommend a game for you.\n")
+            print(f"{Style.BRIGHT}{Fore.MAGENTA}\nWelcome to the Video Game Recommendation System!")
+            print(f"{Style.BRIGHT}{Fore.MAGENTA}Please answer a few questions to help us recommend a game for you.\n")
         
-            genre_input:str = input("What is your favorite game genre?(Shooter/Narrative/Sports/Platformer): ")
+            genre_input:str = input(f"{Fore.BLUE}What is your favorite game genre?({Fore.GREEN}Shooter{Fore.BLUE}/{Fore.GREEN}Narrative{Fore.BLUE}/{Fore.GREEN}Sports{Fore.BLUE}/{Fore.GREEN}Platformer{Fore.BLUE}):{Fore.GREEN} ")
             #Check the entered value
             if not check_genre_input(genre_input):
-                raise ValueError("\nInvalid Genre! please type in the genre from the following list: Shooter, Narrative, Sports or Platformer\n")
-            rating_input:float = float(input("What is the minimum rating you would like the game to have (out of 10)? "))
+                raise ValueError(f"{Fore.RED}\nInvalid Genre! please type in the genre from the following list: Shooter, Narrative, Sports or Platformer\n")
+            rating_input:float = float(input(f"{Fore.BLUE}What is the minimum rating you would like the game to have ({Fore.GREEN}out of 10{Fore.BLUE})? {Fore.GREEN}"))
             #Check the entered type/value
             if not check_rating_input(rating_input):
-                raise TypeError("\nInvalid Number! please provide a valid number\n")
-            platform_input:str = input("What platform do you want to play the game on?(PC/PlayStation/Xbox/Nintendo Switch): ")
+                raise TypeError(f"{Fore.RED}\nInvalid Number! please provide a valid number\n")
+            platform_input:str = input(f"{Fore.BLUE}What platform do you want to play the game on?({Fore.GREEN}PC{Fore.BLUE}/{Fore.GREEN}PlayStation{Fore.BLUE}/{Fore.GREEN}Xbox{Fore.BLUE}/{Fore.GREEN}Nintendo Switch{Fore.BLUE}): {Fore.GREEN}")
             #Check the entered value
             if not check_platform_input(platform_input):
-                raise ValueError ("\nInvalid Platform! please type in the platform from the following list: PC, PlayStation, Xbox, Nintendo Switch\n")
+                raise ValueError (f"{Fore.RED}\nInvalid Platform! please type in the platform from the following list: PC, PlayStation, Xbox, Nintendo Switch\n")
             
             recommended_games:list=[]
             #Filter the games list
@@ -29,29 +32,29 @@ def recommend_game():
             # Sort the filtered list of games by rating and return the top 10
             recommended_games:list = sort_by_rating(filtered_by_rating, 10)
             if len(recommended_games) == 0:
-                print("Sorry, we could not find any games that match your criteria.")
+                print(f"{Fore.RED}Sorry, we could not find any games that match your criteria.")
             # Print the recommended games
             else:
-                print(f"\nHere are some '{platform_input}' games we recommend for '{genre_input}' fans:\n")
+                print(f"{Fore.GREEN}\nHere are some{Fore.MAGENTA} '{platform_input}'{Fore.GREEN} games we recommend for {Fore.MAGENTA}'{genre_input}' {Fore.GREEN}fans:\n")
                 for game in recommended_games:
                     print(game.display_information(platform_input))
                 
                 while True:    
-                    choice1:str=input("\nDo you want more information about the games we have recommend for you? (y/n)  ")
+                    choice1:str=input(f"{Fore.BLUE}\nDo you want more information about the games we have recommend for you? ({Fore.GREEN}y{Fore.BLUE}/{Fore.GREEN}n{Fore.BLUE}) {Fore.GREEN}")
                     #Check the entered value
                     if not check_choices(choice1):
-                        print("\nInvalid value! please entr 'y' for yes or 'n' for no\n")
+                        print(f"{Fore.RED}\nInvalid value! please entr 'y' for yes or 'n' for no\n")
                         continue
                     elif choice1.lower() == 'y':
-                        selected_game:str=input("Please choose the title of the game you want to display(from the previous list): ")
+                        selected_game:str=input(f"{Fore.BLUE}Please choose the title of the game you want to display({Fore.GREEN}from the previous list{Fore.BLUE}):{Fore.GREEN} ")
                         if not select_an_image(recommended_games,selected_game):
-                            print("\nInvalid value! please entr the correct title from the previous list\n")
+                            print(f"{Fore.RED}\nInvalid value! please entr the correct title from the previous list\n")
                             continue
 
-                    choice2:str = input("\nWould you like to search for other games? (y/n)  ")
+                    choice2:str = input(f"{Fore.BLUE}\nWould you like to search for other games? ({Fore.GREEN}y{Fore.BLUE}/{Fore.GREEN}n{Fore.BLUE}) {Fore.GREEN} ")
                     #Check the entered value
                     if not check_choices(choice2):
-                        print("\nInvalid value! please enter 'y' for yes or 'n' for no\n")
+                        print(f"{Fore.RED}\nInvalid value! please enter 'y' for yes or 'n' for no\n")
                         continue
                     if choice2.lower() == 'y':
                         break
@@ -69,5 +72,5 @@ def recommend_game():
 
 
 recommend_game()
-print("\nThank you for using the Video Game Recommendation System!\n")
+print(f"{Style.BRIGHT}{Fore.MAGENTA}{Back.WHITE}\nThank you for using the Video Game Recommendation System!\n")
 
