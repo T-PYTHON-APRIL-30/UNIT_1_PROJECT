@@ -41,3 +41,16 @@
 
 
 ### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+
+
+
+
+### creating an program simller to Phone Coancts in phones
+you can add numbers
+you can remove number
+you can review your contacts
+you can search for info
+
+### classes
+there are 2 classes that save info into them and call them back from the main.py
+
