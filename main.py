@@ -1,13 +1,12 @@
-#packages
+# packages
 from cfonts import say
 from colorama import Fore
 
 from movie_list import Display
 from add_movie import add_menu
 from remove_movie import remove_menu
-from list_sections import section_menu as section_menu2
+from list_sections import section_menu
 from statistics_list import status
-from modules import section_menu
 
 
 movie_data: list = [] # list to store user data
@@ -38,13 +37,13 @@ while True:
             display = Display(movie_data)
             display.display()
             if len(movie_data) != 0:
-                section_menu.list_menu(movie_data)
+                display.list_menu()
         elif main_menu == "2":
             add_menu(movie_data)
         elif main_menu == "3":
             remove_menu(movie_data)
         elif main_menu == "4":
-            section_menu2(movie_data)
+            section_menu(movie_data)
         elif main_menu == "5":
             status(movie_data)
         elif main_menu == "0":

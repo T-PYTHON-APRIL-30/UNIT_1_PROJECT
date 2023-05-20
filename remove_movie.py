@@ -1,5 +1,6 @@
-#packages
+# packages
 from colorama import Fore
+
 from movie_list import Display
 
 

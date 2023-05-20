@@ -1,4 +1,4 @@
-#packages
+# packages
 from colorama import Fore
 
 from movie_list import Display
@@ -13,6 +13,7 @@ def add_menu(movie_data: list):
 
     txt1 = """
     Enter the movie name:
+    - to return to the previous list type 0 -
 > """
     txt2 = """
     Choose from the list, by typing the number:
@@ -37,19 +38,23 @@ def add_menu(movie_data: list):
 
     # the add movie menu
     movie_name = input(txt1_1)
-    movie_section = input(txt1_2)
-    movie_reviwe = input(txt1_3)
-    movie_rating = input(txt1_4)
-    
-    movie: dict = {
-        "movie": movie_name,
-        "reviwe": movie_reviwe,
-        "rating": movie_rating,
-        "section": movie_section
-    }
-    
-    check_input.check_add(movie, movie_name, movie_reviwe, movie_rating, movie_section)
-    movie_data.append(movie) # add new movie to the list
+    if movie_name == "0":
+        return 0
+    else:
+        movie_section = input(txt1_2)
+        movie_reviwe = input(txt1_3)
+        movie_rating = input(txt1_4)
+        
+        movie: dict = {
+            "movie": movie_name,
+            "reviwe": movie_reviwe,
+            "rating": movie_rating,
+            "section": movie_section
+        }
+        
 
-    display = Display(movie_data)
-    return display.display()
+        check_input.check_add(movie, movie_name, movie_reviwe, movie_rating, movie_section)
+        movie_data.append(movie) # add new movie to the list
+
+        display = Display(movie_data)
+        return display.display()
