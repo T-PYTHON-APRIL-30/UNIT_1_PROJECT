@@ -1,3 +1,5 @@
+from colorama import *
+
 order_list = list()
 price_list = list()
 
@@ -13,7 +15,7 @@ price_cold_drinks = list(dict_cold_drinks.values())
 
 def hot_drinks():
     count = 1
-    print("\n Hot Drinks")
+    print(Fore.WHITE +"\n Hot Drinks"+ Fore.CYAN)
 
     for i in range(len(name_hot_drinks)):
         print(f"{count}-{name_hot_drinks[i]} {price_hot_drinks[i]}.SR \n")
@@ -21,7 +23,7 @@ def hot_drinks():
 
 def cold_drinks():
     count = 1
-    print("\n Cold Drinks")
+    print(Fore.WHITE +"\n Cold Drinks" + Fore.CYAN)
     
     for i in range(len(name_cold_drinks)):
         print(f"{count}-{name_cold_drinks[i]} {price_cold_drinks[i]}.SR \n")
@@ -33,27 +35,29 @@ def take_order(type:str,order:str):
         if order in name_hot_drinks:
             order_list.append(order)
             price_list.append(dict_hot_drinks[order])
-            print("added to the invoice")
+            print(Fore.WHITE + "\nadded to the invoice" + Fore.CYAN )
             return
         else:
-            print("please check the name of order")
+            print( Fore.RED +"please check the name of order" + Fore.CYAN)
 
     elif type.lower() == "c" or type.lower() == "cold":
         if order in name_cold_drinks:
             order_list.append(order)
             price_list.append(dict_cold_drinks[order])
-            print("added to the invoice")
+            print(Fore.WHITE + "\nadded to the invoice" + Fore.CYAN )
             return
         else:
-            print("please check the name of order")
+            print(Fore.RED +"please check the name of order" + Fore.CYAN)
     else:
-        print("Please check the input!")
+        print(Fore.RED +"Please check the input!"+ Fore.CYAN)
     
         
 def print_your_order():
     count = 1
-    print("\n You added this items ")
+    print(Fore.WHITE+"\nYou added this items " + Fore.CYAN)
     
     for i in range(len(order_list)):
         print(f"{count}-{order_list[i]} {price_list[i]}.SR \n")
         count +=1
+    
+    return " "

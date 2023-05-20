@@ -1,16 +1,17 @@
-from colorama import colorama_text
-from art import text2art,tprint
+from colorama import *
+from art import *
 import Drinks_page, Donuts_page
+from CheckOut_page import checkout_order
 
 
-tprint("Wellcome to our Coffee-shop")
+tprint("Wellcome to Coffee-shop")
 
 
 
-user_name = str(input("Hi Enter Your Name!: "))
+user_name = str(input(Fore.CYAN +"Hi Enter Your Name!: "))
 
 if user_name.isnumeric() or user_name.startswith(" ") or user_name == "":
-     raise ValueError("You should enter a character only!")
+     raise ValueError(Fore.RED + "You should enter a character only!" + Fore.CYAN)
      
 else:
    print(f"\n Wellcome {user_name} \n")
@@ -28,23 +29,23 @@ def process_order(answer:str):
     if answer.lower() == "n" or answer.lower() == "no":
         return answer
 
-    answer = input("\n Drinks(d) Or Donuts(dn)? ")
+    answer = input("\nDrinks(d) Or Donuts(dn)? ")
 
     if answer.lower() == "d" or answer.lower() == "drinks":
-        answer = input("\n Hot Drinks(h) Or Cold Drinks(c)")
+        answer = input("\n Hot Drinks(h) Or Cold Drinks(c): ")
 
         if answer.lower() == "h" or answer.lower() == "hot":
             Drinks_page.hot_drinks()
-            answer = input("\n write waht you want of the list: ")
+            answer = input("\nwrite waht you want of the list: ")
             Drinks_page.take_order("h",answer)
 
         elif answer.lower() == "c"  or answer.lower() == "cold":
             Drinks_page.cold_drinks()
-            answer = input("\n write waht you want of the list: ")
+            answer = input("\nwrite waht you want of the list: ")
             Drinks_page.take_order("c",answer)
 
         else:
-            print("please check the answer!")
+            print(Fore.RED + "please check the answer!" + Fore.CYAN)
             return process_order()
         
 
@@ -54,32 +55,36 @@ def process_order(answer:str):
         Donuts_page.take_order(answer)
 
     else:
-            print("\n please check the answer!")
+            print(Fore.RED + "\n please check the answer!" + Fore.CYAN)
             return process_order("y")
 
 
-    answer = input("\n Do you want add anything else? ")
+    answer = input("\nDo you want to add anything else y(Yes) or n(No) ")
     return process_order(answer)   
 
 
 user_answer = "no"
 while user_answer == "n" or user_answer == "no":
 
-    input_of_user = input("\n Do you want to order? y(yes) or n(no) ")
+    input_of_user = input("\nDo you want to order? y(Yes) or n(No) ")
 
-    if input_of_user == "y":
+    if input_of_user.lower() == "y" or input_of_user.lower() == "yes":
                 
         process_order(input_of_user)
         Drinks_page.print_your_order()
-            #checkout
-            #then exit
-    else:
-        user_answer = input("\n Do you want to exit y(yes) or n(no)? ")
-
-        if user_answer == "y" or user_answer == "yes":
-            exit("\n Thank you... see you soon ")
         
-            
+        checkout_order(user_name)
 
-#while input_of_user != "exit":
-#    pass
+    elif input_of_user.lower() == "n" or input_of_user.lower() == "no":
+        user_answer = input("\nDo you want to exit y(Yes) or n(No)? ")
+
+        if user_answer.lower() == "y" or user_answer.lower() == "yes":
+            exit("\nThank you... see you soon \n")
+        
+        elif user_answer.lower() != "n" or user_answer.lower() != "no":
+            print(Fore.RED +"\nPlease check the answer?!" + Fore.CYAN)
+
+    else:
+        print(Fore.RED + "\nPlease check the answer?!" + Fore.CYAN)
+
+ 
