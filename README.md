@@ -15,13 +15,12 @@
 
 
 #### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
+ How to use the project:
+ - Type in classification to specify the movie's rating.
+ - Type in FilmsSelection to show all the movies in the selected category.
+ - Type in song to get your favorite song.
+ - Type in lastquestion with approval or rejection to hear a motivational message. 
+
 
 
 ### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
