@@ -54,22 +54,25 @@ class Store:
 
     
     def get_recommendations(self):
-        if not self.__cart:
-            print("cart is empty,try adding to the cart first to provide recommendation")
-            raise Exception("cart is empty,try adding to the cart first to provide recommendation")
+        try:   
+            if not self.__cart:
+                print("cart is empty,try adding to the cart first to provide recommendation")
+                raise Exception("cart is empty,try adding to the cart first to provide recommendation")
             
-        last_purchase = self.__cart[-1].get_name()
-        recommended = []
-        for Fruit_Object in self.__inventory:
-            if str(Fruit_Object.get_name()).lower() != last_purchase:
-                recommended.append(Fruit_Object)
-        if not recommended:
-            raise Exception("no recommendation available")
-        else:
-            for Fruit_Object in random.sample(recommended,len(recommended)):
-                recommended_fruit = f"Here's what we recommend: {str(Fruit_Object)}"
-                print(recommended_fruit)
-                return recommended_fruit
+            last_purchase = self.__cart[-1].get_name()
+            recommended = []
+            for Fruit_Object in self.__inventory:
+                if str(Fruit_Object.get_name()).lower() != last_purchase:
+                    recommended.append(Fruit_Object)
+            if not recommended:
+                raise Exception("no recommendation available")
+            else:
+                for Fruit_Object in random.sample(recommended,len(recommended)):
+                    recommended_fruit = f"Here's what we recommend: {str(Fruit_Object)}"
+                    print(recommended_fruit)
+                    return recommended_fruit
+        except Exception as e:
+            return e
     
     
     def add_product_to_cart(self,item:str):
@@ -109,29 +112,33 @@ class Store:
 
     
     def list_the_prodcuts(self):
-        if not self.__cart:
-            print("cart is empty")
-            raise Exception("cart is empty")
+        try:
+            if not self.__cart:
+                print("cart is empty")
+                raise Exception("cart is empty")
             
-        else:
-            list_of_products_in_cart = f"\n -- \n"
-            for Fruit_Object in self.__cart[1:]:
-                list_of_products_in_cart += f" here's what in your cart: {Fruit_Object.get_name()}, Price: {Fruit_Object.get_price()}$"
-            print(list_of_products_in_cart)
-            return list_of_products_in_cart
+            else:
+                list_of_products_in_cart = f"\n -- \n"
+                for Fruit_Object in self.__cart:
+                    list_of_products_in_cart += f" here's what in your cart: {Fruit_Object.get_name()}, Price: {Fruit_Object.get_price()}$ \n"
+                print(list_of_products_in_cart)
+                return list_of_products_in_cart
+        except Exception as e:
+            return e
     
     
     def checkout(self) -> bool:
-        if not self.__cart:
-            print("cart is empty")
-            raise Exception("cart is empty")
-        
-        
-        total_price = sum(Fruit_Object.get_price() for Fruit_Object in self.__cart)
-        Customer2 = customer()
-        Customer2.text_to_speech(f"the total price is: {total_price}$")
-        print(f"the total price is: {total_price}$")
         try:
+            Customer2 = customer()
+            if not self.__cart:
+                Customer2.text_to_speech("cart is empty")
+                print("cart is empty")
+                raise Exception("cart is empty")
+        
+        
+            total_price = sum(Fruit_Object.get_price() for Fruit_Object in self.__cart)
+            Customer2.text_to_speech(f"the total price is: {total_price}$")
+            print(f"the total price is: {total_price}$")
             Customer2.text_to_speech("enter your city and road respectivley the city is followed by a white space then road:")
             shipping_address_input = input("enter your city and road respectivley the city is followed by a white space then road:")
             if not shipping_address_input.isdigit():
@@ -157,20 +164,7 @@ class Store:
                 Customer2.text_to_speech("must be string")
                 raise ValueError("must be string")
         except Exception as e:
-                print(e)
-
-    
-    def manager_adding_products_to_inventory(self,Fruit_Object:Fruit_Object):
-        self.__inventory.append(Fruit_Object)
-    def manager_removing_products_from_inventory(self,WantedFruit_Object:Fruit_Object):
-        for Fruit_Object in self.__inventory:
-            if Fruit_Object.__name == WantedFruit_Object.__name:
-                self.__inventory.remove(Fruit_Object)
-                return
-    def empyting_cart(self):
-        self.__cart = []
-
-
+            return e
     
     def my_dec(func):
         def wrapper(*args,**kwargs):
@@ -200,7 +194,16 @@ class Store:
 
 
 
-                      
+    def manager_adding_products_to_inventory(self,Fruit_Object:Fruit_Object):
+        self.__inventory.append(Fruit_Object)
+    def manager_removing_products_from_inventory(self,WantedFruit_Object:Fruit_Object):
+        for Fruit_Object in self.__inventory:
+            if Fruit_Object.__name == WantedFruit_Object.__name:
+                self.__inventory.remove(Fruit_Object)
+                return
+            
+    def empyting_cart(self):
+        self.__cart = []                   
 
 
         

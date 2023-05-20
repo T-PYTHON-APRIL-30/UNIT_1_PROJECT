@@ -15,4 +15,4 @@ class Fruit_Object:
     
 
     def __str__(self) -> str:
-         return f"Fruit Name:{self.__name} it's described as:{self.__description}, Price:{self.__price}$ Dollars"
+         return f"Fruit Name:{self.__name} it's described as:{self.__description}, Price:{self.__price}$"
