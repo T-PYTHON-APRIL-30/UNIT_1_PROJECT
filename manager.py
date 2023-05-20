@@ -15,30 +15,30 @@ def rules():
     print("\t   Any hint will cost 0.25")
     print("If you late more than 30 seconds will cost 0.25\n")
 
-def cheackTime(time:float):
-    '''This function makes sure that the time is less than or equal to 30 seconds, otherwise 0.25 points will be deducted.'''
-    if time < 15.0 :
-        print(f"\n   That was fast ! You takes only {time} seconds.\n")
-    elif time > 30.0 :
-        print(f"\n   That was late ! You takes {time} seconds.\n")
-    else:
-        print(f"\n\t  You takes {time} seconds.\n")
-
 def cheackScore(total:float,time:float):
     '''This function verifies the result and displays the appropriate answer for the score along with the final score'''
     if time > 30.0 :
         total -= 0.25
     
     if 0.0 >= total:
-        print(f"\n   Bad luck! You didn't get any answer correct!\n")
+        print(f"\n   Bad luck! You didn't get any answer correct!")
     elif 0.0 < total < 2.0 :
-        print(f"\n\t     Ummm! You got {total}/5 !\n")
+        print(f"\n\t     Ummm! You got {total}/5 !")
     elif 2.0 <= total < 4.0 :
-        print(f"\n\t     Nice! You got {total}/5 !\n")
+        print(f"\n\t     Nice! You got {total}/5 !")
     elif 4.0 <= total < 5.0 : 
-        print(f"\n\t   Bravo!! You got {total}/5 !\n")
+        print(f"\n\t   Bravo!! You got {total}/5 !")
     elif total == 5.0 : 
-        print(f"\n\tSuper Amazing!!! You got {total}/5 !\n")
+        print(f"\n\tSuper Amazing!!! You got {total}/5 !")
+
+def cheackTime(time:float):
+    '''This function makes sure that the time is less than or equal to 30 seconds, otherwise 0.25 points will be deducted.'''
+    if time < 15.0 :
+        print(f"\n   That was fast ! You takes only {time} seconds.")
+    elif time > 30.0 :
+        print(f"\n   That was late ! You takes {time} seconds.")
+    else:
+        print(f"\n\t    You takes {time} seconds.")
 
 def countingThree():
     '''This function counts down from 3 to 1 .'''

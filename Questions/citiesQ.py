@@ -9,7 +9,7 @@ class Hint(Answer):
         return super().correctAnswer()
     
     def hintOne(self):
-        return print("\n\tI've a sea!\n")
+        return print("\n\tI've also the Red See Mall!\n")
     
     def hintTwo(self):
         return print("\n\tI'm so crowded in Ramadan!\n")
@@ -26,9 +26,9 @@ def puzzle():
     score = [0]
     hintCounter = 0
     start = time.time()
-    print("\n\tI'm hot in the summer and hot in the winter!\n")
+    print("\n\tThey call me 'Red Sea Bride'!\n")
     print("Who am I?")
-    firstGuess = input("[ 'N' -> Neum - 'A' -> Abha - 'J' -> Jeddah - 'T' -> Taif ]\n'H' -> For a hint\nEnter: ").lower().strip()
+    firstGuess = input("[ 'N' -> Neum - 'A' -> Abha - 'J' -> Jeddah - 'Y' -> Yanbu ]\n'H' -> For a hint\nEnter: ").lower().strip()
     if firstGuess == "j":
         score.append(1.5)
     elif firstGuess == "h":
@@ -36,7 +36,7 @@ def puzzle():
         hintCounter+=1
         questionOneAnswer.hintOne()
         print("Who am I?")
-        firstHintGuess = input("[ 'N' -> Neum - 'A' -> Abha - 'J' -> Jeddah - 'T' -> Taif ]\nEnter: ").lower().strip()
+        firstHintGuess = input("[ 'N' -> Neum - 'A' -> Abha - 'J' -> Jeddah - 'Y' -> Yanbu ]\nEnter: ").lower().strip()
         if firstHintGuess == "j":
             score.append(1.5)
         elif firstHintGuess != "j":
@@ -64,7 +64,7 @@ def puzzle():
         
     print("\n\tI have metro to transportation in me!\n")
     print("Who am I?")
-    thirdGuess = input("[ 'R' -> Riyadh - 'Y' -> Yanbu - 'M' -> Madrid - 'B' -> Bahrain ]\n'H' -> For a hint\nEnter: ").lower().strip()
+    thirdGuess = input("[ 'R' -> Riyadh - 'T' -> Taif - 'M' -> Madinah - 'B' -> Bahrain ]\n'H' -> For a hint\nEnter: ").lower().strip()
     if thirdGuess == "r":
         score.append(2)
     elif thirdGuess == "h":
@@ -72,7 +72,7 @@ def puzzle():
         hintCounter+=1
         questionThreeAnswer.hintThree()
         print("Who am I?")
-        thirdHintGuess = input("[ 'R' -> Riyadh - 'Y' -> Yanbu - 'M' -> Madrid - 'B' -> Bahrain ]\nEnter: ").lower().strip()
+        thirdHintGuess = input("[ 'R' -> Riyadh - 'T' -> Taif - 'M' -> Madinah - 'B' -> Bahrain ]\nEnter: ").lower().strip()
         if thirdHintGuess == "r":
             score.append(2)
         elif thirdHintGuess != "r":
