@@ -1,21 +1,10 @@
-'''
-List to-do:
-Change README file
-design a nicer welcomming
-
-Use some form of Error Handling: DONE
-Use a Lambda function: DONE
-ask for staying days and print suggested plan for each day: DONE
-Use at least 1 Class: DONE
-Organize Your Code into modules & (or packages): DONE
-'''
 from destination import Destination
 
 def welcoming():
     print("\n")
-    print("-"*40)
-    print("Welcome to the Visit Saudi Holiday Planner")
-    print("-"*40)
+    print("-"*50)
+    print("Welcome to the Visit Saudi Trip Planner")
+    print("-"*50)
     print("We are here to help you plan your holiday based on your preferences\n")
 
 welcoming()
@@ -34,35 +23,36 @@ def choose_city():
     print("\n")
     user_input = input("choose a city: ")
     print("\n")
-    if user_input in cities:
-        print(f"You chose a {user_input}")
+    if user_input.isdigit():
+        print("Please type a valid city name.\n")
+    elif user_input.lower() in [city.lower() for city in cities]:
+        matching_city = [city for city in cities if city.lower() == user_input.lower()][0]
+        print(f"You chose a {matching_city}")
         while True:
             try:
                 days = int(input("How many days you plan to stay? "))
                 if days <= 0:
                     raise ValueError("Please enter a positive integer value for the number of days.\n")
-                trip_planner = Destination(user_input, days)
+                trip_planner = Destination(matching_city, days)
                 trip_planner.plan_trip()
                 break
             except ValueError as e:
                print(str(e))
         
 
-def city_info(city):
-    for city in cities:
-        print("+ "+city)
-    print("\n")
-    
+def search_city(user_city):
 
-def search_city(city):
-    if city in cities:
-        print(f"You chose a {city}")
+    if user_city.isdigit():
+        print("Please type a valid city name.\n")
+    elif user_city.lower() in [city.lower() for city in cities]:
+        matching_city = [city for city in cities if city.lower() == user_city.lower()][0]
+        print(f"You chose a {matching_city}")
         while True:
             try:
                 days = int(input("How many days you plan to stay? "))
                 if days <= 0:
                     raise ValueError("Please enter a positive integer value for the number of days.\n")
-                trip_planner = Destination(city, days)
+                trip_planner = Destination(matching_city, days)
                 trip_planner.plan_trip()
                 break
             except ValueError as e:
