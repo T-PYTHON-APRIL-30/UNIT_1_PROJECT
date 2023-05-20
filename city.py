@@ -1,6 +1,7 @@
 import requests
 from geopy.geocoders import Nominatim
 from geopy import distance
+import datetime
 
 def show_distanc(city1:str,city2:str):
     locator=Nominatim(user_agent="geoapiExercises")
@@ -33,6 +34,14 @@ def fech_wetaher(city):
     temp = round(weather_data.json()['main']['temp'])
     
     print(f"WEATHER : {weather} | fech_wetaher: {round((temp-32)/1.8)} c")
-    
+
+def calculate_duration(distance_in_km,speed_in_kmh=300):
+    speed_in_ms = speed_in_kmh / 3.6
+    distance_in_m = distance_in_km * 1000
+
+    duration_in_s = distance_in_m / speed_in_ms
+
+    return datetime.timedelta(seconds=duration_in_s)
+
 
 

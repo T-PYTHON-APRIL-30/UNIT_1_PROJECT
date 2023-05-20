@@ -24,6 +24,14 @@
                     "seat_no": "'21', '31'",
                     "to_city": "jeddah",
                     "date": "2023-05-18"
+               },
+               {
+                    "tecket_no": "300014",
+                    "passengers": "2023-05-18",
+                    "from_city": "abha",
+                    "seat_no": "'14'",
+                    "to_city": "jeddah",
+                    "date": "1"
                }
           ]
      }

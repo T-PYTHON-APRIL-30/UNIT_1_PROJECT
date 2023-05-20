@@ -41,8 +41,8 @@ class Flight:
         write.close()
 
 # add new flight
-def send_flight(from_city,to_city):
-    flight=Flight(from_city,to_city)
+def send_flight(from_city,to_city,date:str=datetime.datetime.today().date()):
+    flight=Flight(from_city,to_city,date)
     with open("flight.json")as read:
         obj=json.load(read)
         list(obj["flights"])[-1]
