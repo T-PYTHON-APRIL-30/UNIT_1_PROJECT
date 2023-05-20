@@ -46,6 +46,7 @@ def countingThree():
     for i in range(3,0,-1):
         print(i,end=" ")
         time.sleep(1)
+    print("")
 
 def pointsDeduction (score:float,hintUsed:int,timeTaken:float):
     '''This function displays your result before the discount and explains the reason for the discount.'''
