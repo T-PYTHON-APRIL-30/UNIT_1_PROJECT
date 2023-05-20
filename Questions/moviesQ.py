@@ -12,13 +12,13 @@ class Hint(Answer):
         return print("\n\tMy daughter become older than me!\n")
     
     def hintTwo(self):
-        return print("\n\tI'm an inestigative movie!\n")
+        return print("\n\tI'm mafia guy!\n")
     
     def hintThree(self):
         return print("\n\tAvada Kedavra!\n")
 
 questionOneAnswer = Hint("Interstellar")
-questionTwoAnswer = Hint("Prisoners")
+questionTwoAnswer = Hint("Scarface")
 questionThreeAnswer = Hint("Harry Potter")
 
 def puzzle():
@@ -28,7 +28,7 @@ def puzzle():
     start = time.time()
     print("\n\tThey sent me to space for science!\n")
     print("Who am I?")
-    firstGuess = input("[ 'J' -> Joker Or 'I' -> Interstellar Or 'D' -> Django Or 'B' -> Batman ]\n'h' -> for a hint\nEnter: ").lower()
+    firstGuess = input("[ 'J' -> Joker - 'I' -> Interstellar - 'D' -> Django - 'B' -> Batman ]\n'H' -> for a hint\nEnter: ").lower().strip()
     if firstGuess == "i":
         score.append(1.5)
     elif firstGuess == "h":
@@ -36,39 +36,35 @@ def puzzle():
         hintCounter+=1
         questionOneAnswer.hintOne()
         print("Who am I?")
-        firstHintGuess = input("[ 'J' -> Joker - 'I' -> Interstellar - 'D' -> Django - 'B' -> Batman ]\nEnter: ").lower()
+        firstHintGuess = input("[ 'J' -> Joker - 'I' -> Interstellar - 'D' -> Django - 'B' -> Batman ]\nEnter: ").lower().strip()
         if firstHintGuess == "i":
             score.append(1.5)
         elif firstHintGuess != "i":
-            print("\nWrong Guess...")
             questionOneAnswer.correctAnswer()
     elif firstGuess != "i" and firstGuess != "h":
-        print("\nWrong Guess...")
         questionOneAnswer.correctAnswer()
 
-    print("\n\tThey kidnapped my little girl!\n")
+    print("\n\t'Say hello to My little frind!'\n")
     print("Who am I?")
-    secondGuess = input("[ 'N' -> NoBody Or 'S' -> Scarface Or 'D' -> Django Or 'P' -> Prisoners ]\n'h' -> for a hint\nEnter: ").lower()
-    if secondGuess == "p":
+    secondGuess = input("[ 'N' -> NoBody - 'S' -> Scarface - 'C' -> Creed - 'T' -> Tenet ]\n'H' -> for a hint\nEnter: ").lower().strip()
+    if secondGuess == "s":
         score.append(1.5)
     elif secondGuess == "h":
         score.append(-0.25)
         hintCounter+=1
         questionTwoAnswer.hintTwo()
         print("Who am I?")
-        secondHintGuess = input("[ 'N' -> NoBody Or 'S' -> Scarface Or 'D' -> Django Or 'P' -> Prisoners ]\nEnter: ").lower()
-        if secondHintGuess == "p":
+        secondHintGuess = input("[ 'N' -> NoBody - 'S' -> Scarface - 'C' -> Creed - 'T' -> Tenet ]\nEnter: ").lower().strip()
+        if secondHintGuess == "s":
             score.append(1.5)
-        elif secondHintGuess != "p":
-            print("\nWrong Guess...")
+        elif secondHintGuess != "s":
             questionTwoAnswer.correctAnswer()
-    elif secondGuess != "p" and secondGuess != "h":
-        print("\nWrong Guess...")
+    elif secondGuess != "s" and secondGuess != "h":
         questionTwoAnswer.correctAnswer()
 
     print("\n\tI'm the killing spell!\n")
     print("Who am I?")
-    thirdGuess = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\n'h' -> for a hint\nEnter: ").lower()
+    thirdGuess = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\n'H' -> for a hint\nEnter: ").lower().strip()
     if thirdGuess == "p":
         score.append(2)
     elif thirdGuess == "h":
@@ -76,14 +72,12 @@ def puzzle():
         hintCounter+=1
         questionThreeAnswer.hintThree()
         print("Who am I?")
-        thirdHintGuess = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\nEnter: ").lower()
+        thirdHintGuess = input("[ 'A' -> Avatar - 'N' -> the Nun - 'F' -> Fargo - 'P' -> Harry Potter ]\nEnter: ").lower().strip()
         if thirdHintGuess == "p":
             score.append(2)
         elif thirdHintGuess != "p":
-            print("\nWrong Guess...")
             questionThreeAnswer.correctAnswer()
     elif thirdGuess != "p" and thirdGuess != "h":
-        print("\nWrong Guess...")
         questionThreeAnswer.correctAnswer()
     
     end = time.time()

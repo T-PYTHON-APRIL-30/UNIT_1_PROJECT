@@ -28,7 +28,7 @@ def puzzle():
     start = time.time()
     print("\n\tI'm well known worldwide and play in an Saudi leage!\n")
     print("Who am I?")
-    firstGuess = input("[ 'M' -> Mohammed Noor - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\n'h' -> For a hint\nEnter: ").lower()
+    firstGuess = input("[ 'M' -> Mohammed Salah - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\n'H' -> For a hint\nEnter: ").lower().strip()
     if firstGuess == "c":
         score.append(1.5)
     elif firstGuess == "h":
@@ -36,19 +36,17 @@ def puzzle():
         hintCounter+=1
         questionOneAnswer.hintOne()
         print("Who am I?")
-        firstHintGuess = input("[ 'M' -> Mohammed Salah - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\nEnter: ").lower()
+        firstHintGuess = input("[ 'M' -> Mohammed Salah - 'Z' -> Zlatan - 'C' -> Cristiano Ronaldo - 'L' -> Lionel Messi ]\nEnter: ").lower().strip()
         if firstHintGuess == "c":
             score.append(1.5)
         elif firstHintGuess != "c":
-            print("\nWrong Guess...")
             questionOneAnswer.correctAnswer()
     elif firstGuess != "c" and firstGuess != "h":
-        print("\nWrong Guess...")
         questionOneAnswer.correctAnswer()
 
     print("\n\tI have the most championsleague!\n")
     print("Who am I?")
-    secondGuess = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\n'h' -> For a hint\nEnter: ").lower()
+    secondGuess = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\n'H' -> For a hint\nEnter: ").lower().strip()
     if secondGuess == "r":
         score.append(1.5)
     elif secondGuess == "h":
@@ -56,19 +54,17 @@ def puzzle():
         hintCounter+=1
         questionTwoAnswer.hintTwo()
         print("Who am I?")
-        secondHintGuess = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\nEnter: ").lower()
+        secondHintGuess = input("[ 'C' -> Chelsea - 'R' -> Real Madrid - 'N' -> Napoli - 'L' -> Liverpool ]\nEnter: ").lower().strip()
         if secondHintGuess == "r":
             score.append(1.5)
         elif secondHintGuess != "r":
-            print("\nWrong Guess...")
             questionTwoAnswer.correctAnswer()
     elif secondGuess != "r" and secondGuess != "h":
-        print("\nWrong Guess...")
         questionTwoAnswer.correctAnswer()
         
     print("\n\tI won the 2006 worldcup!\n")
     print("Who am I?")
-    thirdGuess = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\n'h' -> For a hint\nEnter: ").lower()
+    thirdGuess = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\n'H' -> For a hint\nEnter: ").lower().strip()
     if thirdGuess == "i":
         score.append(2)
     elif thirdGuess == "h":
@@ -76,14 +72,12 @@ def puzzle():
         hintCounter+=1
         questionThreeAnswer.hintThree()
         print("Who am I?")
-        thirdHintGuess = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\nEnter: ").lower()
+        thirdHintGuess = input("[ 'S' -> Saudi Arabia - 'F' -> France - 'B' -> Brazil - 'I' -> Italy ]\nEnter: ").lower().strip()
         if thirdHintGuess == "i":
             score.append(2)
         elif thirdHintGuess != "i":
-            print("\nWrong Guess...")
             questionThreeAnswer.correctAnswer()
     elif thirdGuess != "i" and thirdGuess != "h":
-        print("\nWrong Guess...")
         questionThreeAnswer.correctAnswer()
         
     end = time.time()

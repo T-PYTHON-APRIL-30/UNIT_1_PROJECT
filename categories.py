@@ -4,18 +4,18 @@ from manager import countingThree , rules
 def sportsGame():
     '''This function calls the questions of this game'''
     while True:
-        print("You have to guess what is the sport !")
-        print("Are you ready?")
-        userChoose = str(input("'Y' -> Yes to start the game \n'N' -> No to choose another game\nEnter: ")).lower()
+        print("\t You have to guess the names!")
+        print("\t\tAre you ready?\n")
+        userChoose = str(input("'Y' -> Yes to start the game \n'Q' -> quit to choose another game\nEnter: ")).lower().strip()
         if userChoose.isalpha() and len(userChoose) == 1 :
             if userChoose == "y" :
-                print("The game is starts in",end=" ")
+                print("\n\t  The game is starts in",end=" ")
                 countingThree()
                 try: # if i update the sports questions and i did something wrong the try will catch it
                     sportsQ.puzzle()
                 except:
-                    print("Something went wrong in the sports questions!")
-            elif userChoose == "n" :
+                    print("\n**Something went wrong in the sports questions!**\n")
+            elif userChoose == "q" :
                 break
             else:
                 print("\nWrong entry.. Try again !\n")
@@ -25,18 +25,18 @@ def sportsGame():
 def moviesGame():
     '''This function calls the questions of this game'''
     while True:
-        print("You have to guess what is the movie !")
-        print("Are you ready?")
-        userChoose = str(input("'Y' -> Yes to start the game \n'N' -> No to choose another game\nEnter: ")).lower()
+        print("    You have to guess the name of the movie!")
+        print("\t\tAre you ready?\n")
+        userChoose = str(input("'Y' -> Yes to start the game \n'Q' -> quit to choose another game\nEnter: ")).lower().strip()
         if userChoose.isalpha() and len(userChoose) == 1 :
             if userChoose == "y" :
-                print("The game is starts in",end=" ")
+                print("\n\t  The game is starts in",end=" ")
                 countingThree()
                 try: # if i update the movies questions and i did something wrong the try will catch it
                     moviesQ.puzzle()
                 except:
-                    print("Something went wrong in the movies questions!")
-            elif userChoose == "n" :
+                    print("\n**Something went wrong in the movies questions!**\n")
+            elif userChoose == "q" :
                 break
             else:
                 print("\nWrong entry.. Try again !\n")
@@ -46,18 +46,18 @@ def moviesGame():
 def citiesGame():
     '''This function calls the questions of this game'''
     while True:
-        print("You have to guess what is the city !")
-        print("Are you ready?")
-        userChoose = str(input("'Y' -> Yes to start the game \n'N' -> No to choose another game\nEnter: ")).lower()
+        print("    You have to guess the name of the city!")
+        print("\t\tAre you ready?\n")
+        userChoose = str(input("'Y' -> Yes to start the game \n'Q' -> quit to choose another game\nEnter: ")).lower().strip()
         if userChoose.isalpha() and len(userChoose) == 1 :
             if userChoose == "y" :
-                print("The game is starts in",end=" ")
+                print("\n\t  The game is starts in",end=" ")
                 countingThree()
                 try: # if i update the cities questions and i did something wrong the try will catch it
                     citiesQ.puzzle()
                 except:
-                    print("Something went wrong in the cities questions!")
-            elif userChoose == "n" :
+                    print("\n**Something went wrong in the cities questions!**\n")
+            elif userChoose == "q" :
                 break
             else:
                 print("\nWrong entry.. Try again !\n")
@@ -67,33 +67,33 @@ def citiesGame():
 def chooseCategory():
     '''This function allows the player to choose his prefered game'''
     while True:
-        print("What category do you prefer?")
-        userChoose = str(input("'s' -> Sports \n'm' -> Movies \n'c' -> Cities\n'e' -> Exit\nEnter: ")).lower()
+        print("\nWhat category do you prefer?")
+        userChoose = str(input("'S' -> Sports \n'M' -> Movies \n'C' -> Cities\n'Q' -> quit\nEnter: ")).lower().strip()
         if userChoose.isalpha() and len(userChoose) == 1 :
             if userChoose == "s" :
-                print("You choose sports")
+                print("\n\t  You choosing sports game!")
                 rules()
                 try: # if i update the sports game and i did something wrong the try will catch it
                     sportsGame() 
                 except:
-                    print("Something went wrong in the sports game!")
+                    print("\n**Something went wrong in the sports game!**\n")
             elif userChoose == "m" :
-                print("You choose movies")
+                print("\n\t  You choosing movies game!")
                 rules()
                 try: # if i update the movies game and i did something wrong the try will catch it
                     moviesGame()
                 except:
-                    print("Something went wrong in the movies game!")
+                    print("\n**Something went wrong in the movies game!**\n")
             elif userChoose == "c" :
-                print("You choose cities")
+                print("\n\t  You choosing cities game!")
                 rules()
                 try: # if i update the cities game and i did something wrong the try will catch it
                     citiesGame() 
                 except:
-                    print("Something went wrong in the cities game!")
-            elif userChoose == "e" :
+                    print("\n**Something went wrong in the cities game!**\n")
+            elif userChoose == "q" :
                 break
             else:
-                print("\nWrong entry.. Try again !\n")
+                print("\nWrong entry.. Try again!")
         else:
-            print("\nWrong entry.. Try again !\n")
+            print("\nWrong entry.. Try again!")
