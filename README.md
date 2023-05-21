@@ -1,4 +1,4 @@
-# UNIT_1_PROJECT
+# Task Manager
 
 ## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
 
@@ -41,3 +41,15 @@
 
 
 ### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+
+## Overview
+A task manager program to orgnize your task
+
+##
+- Add Task
+- Store The Tasks Into Json File
+- Display Current Tasks
+- Display Task Information
+- Mark A Task As Completed
+- Display Completed Tasks
+- Search For Task 
