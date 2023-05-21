@@ -2,9 +2,14 @@ from Contacts.contact import Contact
 from Contacts.storage import Storage
 from art import *
 from colorama import Fore
-# for playing note.wav file
-tprint(Fore.BLACK +"Welcome to Contact info:",font="cybermedum")
+import pyttsx3
 
+engine = pyttsx3.init()
+engine.say("welcome to contact information ")
+engine.runAndWait()
+
+# for playing note.wav file
+(tprint(Fore.BLACK +"Welcome to Contact information:",font="cybermedum"))
 #Enter info to storage
 def add_contact(storage):
     try:
@@ -14,8 +19,11 @@ def add_contact(storage):
     except ValueError as e:
         print(Fore.RED + f"Error: {e}")
 #massage to add contant
+
     contact = Contact(name, phone, email)
     storage.add_contact(contact)
+    engine.say("contact added ")
+    engine.runAndWait()
     print(f"Added contact: {contact}")
 # search for name and remove id exisit
 def remove_contact(storage):
@@ -24,8 +32,12 @@ def remove_contact(storage):
     try:
         storage.remove_contact(name)
         print(Fore.RED + f"Removed contact: {name}")
+        engine.say("remove contact ")
+        engine.runAndWait()
     except ValueError as e:
         print(Fore.RED + f"Error: {e}")
+        engine.say("no contact, try again ")
+        engine.runAndWait()
 # search and display
 def find_contact(storage):
     name = input("Enter the name of the contact to find: ")
@@ -35,10 +47,10 @@ def find_contact(storage):
         print(Fore.BLUE + f"Found contact: {contact}")
     else:
         print(Fore.RED + f"No contact found with name '{name}'")
-   
+    
 '''def display_contact():
     print(Contact.items())
-    print("Name\t\tContact Number")
+    print("name\t\tContact number")
     for key in Contact:
         print("{}\t\t{}".format(key,Contact.get(key)))  '''      
 
@@ -51,7 +63,7 @@ def main():
     }
 #Main funcation
     while True:
-        action = input(Fore.YELLOW +"Choose an action \n\n 1. Add new contact  \n\n 2.Delete contact  \n\n 3.Search contact  \n\n 4.Quit \n  ").lower()
+        action = input(Fore.YELLOW +"Choose an action \n\n 1. Add new contact  \n\n 2.Delete contact  \n\n 3.Search contact  \n\n 4.quit").lower()
 
         if action == "quit":
             break

@@ -13,3 +13,4 @@ class Storage:
             if contact.name == name:
                 return contact
         return None
+
