@@ -14,8 +14,12 @@ def password_generator(length:int = 8):
     #special character
     x= [secrets.choice(upper_letters),secrets.choice(lower_letters), secrets.choice(digits),secrets.choice(special_chars)]
     y= [secrets.choice(lower_letters + upper_letters + digits ) for _ in range(length-4)]
-
+    '''pwd = [secrets.choice(upper_letters),secrets.choice(lower_letters),\
+           secrets.choice(digits),secrets.choice(special_chars)]  + \
+            [secrets.choice(lower_letters + upper_letters + digits ) for _ in range(length-4)]
+    '''
     pwd=lambda x,y:x+y
     shuffle(pwd(x,y))
     pwd = ''.join(pwd(x,y))
     return pwd
+print(password_generator(10))
