@@ -2,7 +2,9 @@ from playsound import playsound
 from stringcolor import * 
 from ClassesAnimations import *
 playsound('sounds/WelcomeSpeaceToon.mp3')
-print(cs("🎊🎊😍 This Is a Program For Animations 😍🎊🎊 ","orchid" ))
+print(cs("🎊🎊😍 This Is a Program For Animations 😍🎊🎊 ","orchid "  ))
+print()
+
 
 
 
