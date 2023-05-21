@@ -1,7 +1,7 @@
 # flight booking simulator
-###overview
+### overview
  it is Simulation of seat reservation on the plane by reviewing a number of flights, and the user selects from these flights and reserves a seat,checking about weather of any city and find the distance bitween your city and others cities 
- ###usage
+ ### usage
 
 - the user write the origin city and how many passengers with him
 - display the flights from origin city if  the destination city not found the user can add new flight 
