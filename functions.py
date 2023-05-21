@@ -32,9 +32,7 @@ def log_in_ar ():
             print(resh(f"كلمة المرور غير صحيحة")) 
         else:
             print(resh("مرحبا بعودتك"))
-            for i in user1.name.items():
-                if name_input_ar == i:
-                    return name_input_ar
+            name_input_ar =list(filter(lambda x:user1.name[x] == 'name',user1.name ))[0]
             print(f"{name_input_ar}")
             break  
 
