@@ -81,8 +81,8 @@ def goodBye():
     print(Style.RESET_ALL)
     print()
 
-'''def decrementLife(num:int):
-    return lambda num : num - 1'''
+def decrementLife():
+    return lambda num : num - 1
 
 '''def countdown(t):
     
@@ -105,7 +105,7 @@ print()
 
 
 
-while True and life !=0 :
+while life !=0 :
 
     print('Select the type of the question from the below mneu:\n 1- General Question. \n 2- Historical Question. \n' 
           + '3- Scientific Questions. \n 4- Geographical Questions.\n 5- Exit the Game.')
@@ -156,8 +156,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    lifeDecrement = lambda life: life -1
-                    life = lifeDecrement(life)
+                    decrement = decrementLife()
+                    life = decrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {generalQ[question]}')
                     print(Style.RESET_ALL)
@@ -165,8 +165,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                lifeDecrement = lambda life: life -1
-                life = lifeDecrement(life)
+                decrement = decrementLife()
+                life = decrement(life)
                 wrong(life)
 
 
@@ -209,8 +209,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    lifeDecrement = lambda life: life -1
-                    life = lifeDecrement(life)
+                    decrement = decrementLife() # method that use lambds
+                    life = decrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {historicalQ[question]}')
                     print(Style.RESET_ALL)
@@ -218,8 +218,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                lifeDecrement = lambda life: life -1
-                life = lifeDecrement(life)
+                decrement = decrementLife()
+                life = decrement(life)
                 wrong(life)
 
         elif choice == 3:
@@ -261,8 +261,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    lifeDecrement = lambda life: life -1
-                    life = lifeDecrement(life)
+                    decrement = decrementLife()
+                    life = decrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {scientificQ[question]}')
                     print(Style.RESET_ALL)
@@ -270,8 +270,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                lifeDecrement = lambda life: life -1
-                life = lifeDecrement(life)
+                decrement = decrementLife()
+                life = decrement(life)
                 wrong(life)
 
 
@@ -313,8 +313,8 @@ while True and life !=0 :
                     print()
 
                 else:
-                    lifeDecrement = lambda life: life -1
-                    life = lifeDecrement(life)
+                    decrement = decrementLife()
+                    life = decrement(life)
                     wrong(life)
                     print(Fore.RED + f'Your answer is wrong (◡︵◡) \n The correct answer is {geographicalQ[question]}')
                     print(Style.RESET_ALL)
@@ -322,8 +322,8 @@ while True and life !=0 :
             
             else:
                 print(Fore.RED + "SORRY, Time out try again!")
-                lifeDecrement = lambda life: life -1
-                life = lifeDecrement(life)
+                decrement = decrementLife()
+                life = decrement(life)
                 wrong(life)
 
         elif choice == 5:
