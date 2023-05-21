@@ -2,9 +2,13 @@ from cryptography.fernet import Fernet,InvalidToken
 from hashlib import sha256
 import base64
 
+"""
 # Define a random key hash syntax
 def generate_key(master_password):
     return sha256(master_password.encode()).digest()
+"""
+### using lambda fuction to generate a random key hash syntax
+generate_key = lambda master_password: sha256(master_password.encode()).digest()
 
 
 # Define a function to encrypt the password
@@ -15,6 +19,9 @@ def encrypt_data(data,master_password):
     f = Fernet(encoded_key)
     encrypted_password=f.encrypt(data.encode()).decode()
     return encrypted_password
+
+### using lambda fuction to encrypt the password
+#encrypt_data = lambda data, master_password: Fernet(base64.urlsafe_b64encode(generate_key(master_password))).encrypt(data.encode()).decode()
 
 
 # Define a function to decrypt the password
@@ -28,6 +35,10 @@ def decrypt_data(data, master_password):
     except InvalidToken:
         raise ValueError("Incorrect master password")
     
+### using lambda fuction to decrypt the password
+#decrypt_data = lambda data, master_password: Fernet(base64.urlsafe_b64encode(generate_key(master_password))).decrypt(data.encode()).decode() 
+
+
 """
 master_password = "mysecretkey"
 password = "mypassword"
