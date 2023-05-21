@@ -1,23 +1,13 @@
 # UNIT_1_PROJECT
 
-#### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
-
-
 ### Project Structure
  - The Password Manager project is structured as follows:
 
-
-main.py: The main module of the project. It contains the code for the command-line interface and the logic for managing passwords.
+main.py: The main module of the project..
 password.py: The module that defines the Password class.
 encryption.py: A module that contains functions for encrypting and decrypting data.
 input_validator.py: A module that contains a function for validating user input.
+command.py: It contains the code for the command-line interface and the logic for managing passwords.
 
 ### Function
 ### The Password class has the following attributes:
