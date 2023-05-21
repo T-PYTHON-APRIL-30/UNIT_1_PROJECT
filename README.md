@@ -13,34 +13,23 @@
 
 ## Project :  An online Café :
 
-#### Overview : An online Café that makes customer to order what he like form coffee or bekry. typically serve coffee and food such as pancakes, baguette sandwiches, pastries, and desserts.
+#### Overview : An online Café that makes customer to order what he like from coffee or bekery. typically serve coffee and food such as pancakes, baguette sandwiches, pastries, and desserts.
 
-# This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
-#### 
+#### This online store has 2 main users. The customer and the manager of the coffee .
+
+
 
 #### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, price and quantity)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
+- Browse the cafe menu . 
+- View the product price.
+- identify the quantity order.
 - Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
 - Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
-
+- Get receipt of purchases.
 
 
 #### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
-
-
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+ - type in the menu name(Drinks, Bekery) to show your chosen menu.
+ - type in order_name to identify your order.
+ - type in (drinks_quantity or bakery_quantity) to set the quantity you need pf your order.
+ - type in exit,no or nothing order_question to finish your order and take the receipt. 
