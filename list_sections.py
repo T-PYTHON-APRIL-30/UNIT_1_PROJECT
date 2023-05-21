@@ -17,6 +17,7 @@ def section_menu(movie_data: list):
         
         txt1 = """
         Enter the movie name:
+        - whit the same spelling - 
         - to return to the previous list type 0 -
     > """
         txt2 = """
