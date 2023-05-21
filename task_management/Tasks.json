@@ -1,74 +1,29 @@
 [
     {
-        "id": "LmniR3C5KWkvWSZuY96Tdg",
-        "name": "Task Name",
-        "task": "Description",
-        "priority": "High",
-        "created_at": "2023-05-21 04:51:59",
-        "due_at": "2023-05-21",
+        "id": "KMp6MDKHHebfZWG4fYyxH8",
+        "name": "Car",
+        "task": "Take my car to garage",
+        "priority": "Medium",
+        "created_at": "2023-05-21",
+        "due_at": "2023-06-05",
         "status": "Completed"
     },
     {
-        "id": "Q9fZ6jX7HJrjN8s2F4wYbA",
-        "name": "Write a blog post",
-        "task": "Write a 500-word blog post about the latest trends in AI",
-        "priority": "Medium",
-        "created_at": "2023-05-21 09:05:15",
-        "due_at": "2023-05-23 09:00:00",
-        "status": "New"
-    },
-    {
-        "id": "R7tY4kW9ZJvqM6s3G8xYcA",
-        "name": "Schedule a meeting",
-        "task": "Schedule a meeting with the project manager to discuss the progress and feedback",
+        "id": "cRCXXPxDwzmhUfCe4cqGnF",
+        "name": "Task Example ",
+        "task": "Discription Example",
         "priority": "High",
-        "created_at": "2023-05-21 09:06:15",
-        "due_at": "2023-05-22 10:00:00",
-        "status": "New"
+        "created_at": "2023-05-21",
+        "due_at": "2023-05-22",
+        "status": "Completed"
     },
     {
-        "id": "S8uZ5lX8KJwqN7s4H9wYdA",
-        "name": "Clean the house",
-        "task": "Clean the house before the guests arrive",
+        "id": "WEeS6npLyFWAwfc3pWAmeX",
+        "name": "car",
+        "task": "take my car to the garage",
         "priority": "Low",
-        "created_at": "2023-05-21 09:07:15",
-        "due_at": "2023-05-25 18:00:00",
-        "status": "New"
-    },
-    {
-        "id": "T9vZ6mY9LJxqM8s5J9xYeA",
-        "name": "Read a book",
-        "task": "Read a book for at least 30 minutes",
-        "priority": "Low",
-        "created_at": "2023-05-21 09:08:15",
-        "due_at": "2023-06-02",
-        "status": "New"
-    },
-    {
-        "id": "U0wZ7nZ0MKyqN9s6K0yZfA",
-        "name": "Exercise",
-        "task": "Do some physical activity for at least 20 minutes",
-        "priority": "Medium",
-        "created_at": "2023-05-21 09:09:15",
-        "due_at": "2024-01-01",
-        "status": "New"
-    },
-    {
-        "id": "V1xZ8oA1NLzqP0s7L1zZgA",
-        "name": "Cook dinner",
-        "task": "Cook a healthy and delicious dinner for yourself and your family",
-        "priority": "Medium",
-        "created_at": "2023-05-21 09:10:15",
-        "due_at": "2023-07-08",
-        "status": "New"
-    },
-    {
-        "id": "W2yZ9pB2OM0qQ1s8M2yZhA",
-        "name": "Watch a movie",
-        "task": "Watch a movie that you have been wanting to see for a long time",
-        "priority": "Low",
-        "created_at": "2023-05-21 09:11:15",
-        "due_at": "2023-05-25",
+        "created_at": "2023-05-21",
+        "due_at": "2022-05-22",
         "status": "New"
     }
 ]

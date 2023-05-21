@@ -1,10 +1,12 @@
 from constants import FILTERS, PRIORITY
 from task_management.task import Task
 from task_management.task_management import *
+from colorama import Fore, Back, Style
 
+print(Fore.RED + "Welcome To Your Task Manager Program \n")
 
-print("Welcome To Your Task Manager Program \n")
-
+# print("Welcome To Your Task Manager Program \n")
+# text2art("Welcome To Your Task Manager Program \n",font="small")
 
 def create_new_task():
     task_name = input("Enter The Task Name: ")
@@ -33,6 +35,7 @@ def create_new_task():
     due_at = input("Enter Task Due Date, Format is YYYY-MM-DD:")
     Task(task_name, task_disc, priority, due_at)
     print("The Task Has Been Added")
+    print()
 
 
 def display_current_task():
@@ -88,7 +91,7 @@ def search_for_task():
         name_filter = input("What Are You Searching For: ")
         filtered_tasks = filter_task(tasks, search_factor, name_filter)
         print_tasks(filtered_tasks)
-
+        break
 
 while True:
     print("1. Add New Task ")
@@ -102,24 +105,21 @@ while True:
     # Add New Task
     if choose == "1":
         create_new_task()
-        break
 
     # Display Current Tasks
     elif choose == "2":
         display_current_task()
-        break
+        
 
     # Display Completed Task
     elif choose == "3":
         completed_tasks = completed_task()
         print_tasks(completed_task)
-        break
-
+        
     # search
     elif choose == "4":
         search_for_task()
-        break
-
+        
     # exit
     elif choose == "5":
         print("Thanks For Using Task Manager Program, See You Next Time")
