@@ -13,6 +13,7 @@ class Store:
         self.__cart = cart or [Fruit_Object()]
     
     def browse(self):
+        # Broswe Products
         list_browse = []
         for Fruit_Object in self.__inventory:
             list_browse.append(str(Fruit_Object))
@@ -26,6 +27,7 @@ class Store:
 
     
     def view_product_info(self,name:str):
+        # Views product info based on a keyword:name
         try:
             for Fruit_Object in self.__inventory:
                 if str(Fruit_Object.get_name()).lower() == name.lower():
@@ -40,6 +42,7 @@ class Store:
     
     
     def search_for_product(self,keyword:str):
+        #search for a product based on kwyword: either description or name
         try:
             for Fruit_Object in self.__inventory:
                 if str(Fruit_Object.get_name()).lower() == keyword.lower() or str(Fruit_Object.get_description()).lower() == keyword.lower():
@@ -54,6 +57,7 @@ class Store:
 
     
     def get_recommendations(self):
+        # gets recommendations based on purchases
         try:   
             if not self.__cart:
                 print("cart is empty,try adding to the cart first to provide recommendation")
@@ -76,6 +80,7 @@ class Store:
     
     
     def add_product_to_cart(self,item:str):
+        #add product to cart
         try:
             for Fruit_Object in self.__inventory:
                 if str(Fruit_Object.get_name()).lower() == item.lower():
@@ -92,6 +97,7 @@ class Store:
     
     
     def remove_product_from_cart(self,item:str):
+        #remove product from cart
         try:
             if not self.__cart:
                 print("cart is empty")
@@ -112,6 +118,7 @@ class Store:
 
     
     def list_the_prodcuts(self):
+        #list the products in the cart
         try:
             if not self.__cart:
                 print("cart is empty")
@@ -128,6 +135,7 @@ class Store:
     
     
     def checkout(self) -> bool:
+        #checkout for the purchases
         try:
             Customer2 = customer()
             if not self.__cart:
@@ -180,6 +188,7 @@ class Store:
     
     @my_dec
     def check_delivery_status(self,word):
+        #chcek delivery status of the order
         Customer4 = customer()
         word1 = ["ongoing","late","postponed"]
         if word.lower() == word1[0].lower():
