@@ -51,7 +51,7 @@ def main():
             Customer1.text_to_speech_fast(options)
             while True:
             
-                Customer1.text_to_speech("Select an option from 1 to 12, 11 for a repeat of the menu: ")
+                Customer1.text_to_speech_fast("Select an option from 1 to 12, 11 for a repeat of the menu: ")
                 choice = input("Select an option from 1 to 12, 11 for a repeat of the menu: ")
                 if choice == "1":
                     read_prodcuts = str(Store_Product1.browse()) 
@@ -63,7 +63,7 @@ def main():
                     Customer1.text_to_speech(product_info)
                     flag = True
                     while flag:
-                        Customer1.text_to_speech("would you like to search again? or stop? 1 for searching again 2 for stopping: ")
+                        Customer1.text_to_speech_fast("would you like to search again? or stop? 1 for searching again 2 for stopping: ")
                         inner_choice = input("would you like to search again? or stop? for searching again 2 for stopping: ")
                         if int(inner_choice) == 1:
                             Customer1.text_to_speech("Enter product name to search: ")
@@ -85,10 +85,10 @@ def main():
                     Customer1.text_to_speech(searched_product)
                     flag = True
                     while flag:
-                        Customer1.text_to_speech("would you like to search again? or stop? 1 for searching again 2 for stopping: ")
+                        Customer1.text_to_speech_fast("would you like to search again? or stop? 1 for searching again 2 for stopping: ")
                         inner_choice = input("would you like to search again? or stop? for searching again 2 for stopping: ")
                         if int(inner_choice) == 1:
-                            Customer1.text_to_speech("Enter a keyword either a description or name to search for a specific product: ")
+                            Customer1.text_to_speech_fast("Enter a keyword either a description or name to search for a specific product: ")
                             keyword = input("Enter a keyword either a description or name to search for a specific product: ")
                             searched_product = Store_Product1.search_for_product(keyword)
                             Customer1.text_to_speech(searched_product)
@@ -109,8 +109,8 @@ def main():
                     Customer1.text_to_speech(added_product)
                     flag = True
                     while flag:
-                        Customer1.text_to_speech("would you like to add another item to the cart? or stop? or view you cart? 1 for adding 2 for stopping 3 for viewing the cart: ")
-                        inner_choice = input("would you like to add another item to the cart? or stop? 1 for adding 2 for stopping: ")
+                        Customer1.text_to_speech_fast("would you like to add another item to the cart? or stop? or view you cart? 1 for adding 2 for stopping 3 for viewing the cart: ")
+                        inner_choice = input("would you like to add another item to the cart? or stop? 1 for adding 2 for stopping 3 for viewing the cart: ")
                         if int(inner_choice) == 1:
                             Customer1.text_to_speech("Enter a product name to add to cart: ")
                             name = input("Enter a product name to add to cart: ")
@@ -135,8 +135,8 @@ def main():
                     Customer1.text_to_speech(removed_product)
                     flag = True
                     while flag:
-                        Customer1.text_to_speech("would you like to remove another item to the cart? or stop or view your cart? 1 for adding 2 for stopping 3 for viewing the cart: ")
-                        inner_choice = input("would you like to remove another item to the cart? or stop? 1 for adding 2 for stopping: ")
+                        Customer1.text_to_speech_fast("would you like to remove another item to the cart? or stop or view your cart? 1 for adding 2 for stopping 3 for viewing the cart: ")
+                        inner_choice = input("would you like to remove another item to the cart? or stop? 1 for adding 2 for stopping 3 for viewing the cart: ")
                         if int(inner_choice) == 1:
                             Customer1.text_to_speech("Enter product name to remove from cart: ")
                             name = input("Enter product name to remove from cart: ")
@@ -161,7 +161,7 @@ def main():
                 elif choice == "9":
                     Store_Product1.checkout()
                 elif choice == "10":
-                    Customer1.text_to_speech("enter whether you purchased this week or this month, 1 for this week, 2 for this month, 3 for neither: ")
+                    Customer1.text_to_speech_fast("enter whether you purchased this week or this month, 1 for this week, 2 for this month, 3 for neither: ")
                     choice = input("enter whether you purchased this week or this month, 1 for this week, 2 for this month, 3 for neither: ")
                     try:
                         if int(choice) == 1:
@@ -178,6 +178,8 @@ def main():
                         print(e)
                 elif choice == "11":
                     Customer1.text_to_speech_fast(options)
+                    for option in options:
+                        print(option) 
                 elif choice == "12":
                     Customer1.text_to_speech("Goodbye!")
                     print("Goodbye!")

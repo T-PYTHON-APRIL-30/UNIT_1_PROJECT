@@ -162,8 +162,8 @@ class Store:
                 Customer2.text_to_speech(f"shipment to {shipping_address_input} is on ongoing, and here's the receipt")
                 print(f"shipment to {shipping_address_input} is on ongoing, and here's the receipt")
                 receipt = f"Order Summary: \n --- \n "
-                for Fruit_Object in self.__cart[1:]:
-                    receipt += f"{Fruit_Object.get_name()}, Price:{Fruit_Object.get_price()}$, "
+                for Fruit_Object in self.__cart:
+                    receipt += f"{Fruit_Object.get_name()}, Price:{Fruit_Object.get_price()}$ "
                 receipt += f"\n --- \n Total price:{total_price}$ \n to {shipping_address_input}"
                 Customer2.text_to_speech(receipt)
                 print(receipt)

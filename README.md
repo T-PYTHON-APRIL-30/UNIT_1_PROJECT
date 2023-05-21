@@ -1,10 +1,10 @@
 # UNIT_1_PROJECT
 
-Project Name is FruitbStore 
+Project Name is Fruit Store 
 
 ## Example Project :  An online Fruit Store :
 
-Overview : An online store that sells fruits to customers. This online store is curated for blind people who're in need of accsebility options. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+#### Overview : An online store that sells fruits to customers. This online store is curated for blind people who're in need of accsebility options. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
 
 #### As a customer I should be able to do the following :
 - Browse  Products . 
@@ -27,19 +27,19 @@ Overview : An online store that sells fruits to customers. This online store is 
 
 
 #### Usage :
-there's options for the customer and how to select from them:
-Press 1 if they would like to browse the fruits section
-Press 2 if they would like to view the fruit's info of your choosing
-Press 3 if they would like to search for specific fruit, please provide either a name or description
-Press 4 if they would like to get our reccomenadations for you
-Press 5 if they would like to add the fruit to the cart
-Press 6 if they would like to remove the fruit to the cart
-Press 7 if they would like view your cart before making any purchases
-Press 8 for emptying the cart
-Press 9 for checkout
-Press 10 if they would like to view the delivery status for your order
-Press 11 if they would like a repeat of the narration of the menu 
-Press 12 to exit the program
+- there's options for the customer and how to select from them:
+- Press 1 if they would like to browse the fruits section
+- Press 2 if they would like to view the fruit's info of your choosing
+- Press 3 if they would like to search for specific fruit, please provide either a name or description
+- Press 4 if they would like to get our reccomenadations for you
+- Press 5 if they would like to add the fruit to the cart
+- Press 6 if they would like to remove the fruit to the cart
+- Press 7 if they would like view your cart before making any purchases
+- Press 8 for emptying the cart
+- Press 9 for checkout
+- Press 10 if they would like to view the delivery status for your order
+- Press 11 if they would like a repeat of the narration of the menu 
+- Press 12 to exit the program
 
 
 
