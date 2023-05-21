@@ -124,3 +124,5 @@ while True:
     elif choose == "5":
         print("Thanks For Using Task Manager Program, See You Next Time")
         break
+    else:
+        print("Wrong Entry")
