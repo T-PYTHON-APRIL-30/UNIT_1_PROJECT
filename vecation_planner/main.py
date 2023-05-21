@@ -1,11 +1,31 @@
-from destination import Destination
+from destination import Destination 
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 def welcoming():
-    print("\n")
-    print("-"*50)
-    print("Welcome to the Visit Saudi Trip Planner")
-    print("-"*50)
-    print("We are here to help you plan your holiday based on your preferences\n")
+    print("\033[1m")  # Bold text
+    print("\033[92m")  # Green text
+    print(r"""██╗   ██╗██╗███████╗██╗████████╗    ███████╗ █████╗ ██╗   ██╗██████╗ ██╗
+██║   ██║██║██╔════╝██║╚══██╔══╝    ██╔════╝██╔══██╗██║   ██║██╔══██╗██║
+██║   ██║██║███████╗██║   ██║       ███████╗███████║██║   ██║██║  ██║██║
+╚██╗ ██╔╝██║╚════██║██║   ██║       ╚════██║██╔══██║██║   ██║██║  ██║██║
+ ╚████╔╝ ██║███████║██║   ██║       ███████║██║  ██║╚██████╔╝██████╔╝██║
+  ╚═══╝  ╚═╝╚══════╝╚═╝   ╚═╝       ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝
+                                                                        """)
+    print("\033[0m")  # Reset text color and style
+    print("-" * 73)
+    print("\t\tWelcome to the Visit Saudi Trip Planner")
+    print("-" * 73)
+    print("\nWe are here to help you have the best experince in Saudi Arabia")
 
 welcoming()
 
@@ -24,7 +44,7 @@ def choose_city():
     user_input = input("choose a city: ")
     print("\n")
     if user_input.isdigit():
-        print("Please type a valid city name.\n")
+        print(f"{bcolors.WARNING}Please type a valid city name.\n"+ bcolors.ENDC)
     elif user_input.lower() in [city.lower() for city in cities]:
         matching_city = [city for city in cities if city.lower() == user_input.lower()][0]
         print(f"You chose a {matching_city}")
@@ -32,7 +52,7 @@ def choose_city():
             try:
                 days = int(input("How many days you plan to stay? "))
                 if days <= 0:
-                    raise ValueError("Please enter a positive integer value for the number of days.\n")
+                    raise ValueError(f"{bcolors.WARNING}Please enter a positive integer value for the number of days.\n"+ bcolors.ENDC)
                 trip_planner = Destination(matching_city, days)
                 trip_planner.plan_trip()
                 break
@@ -43,7 +63,7 @@ def choose_city():
 def search_city(user_city):
 
     if user_city.isdigit():
-        print("Please type a valid city name.\n")
+        print(f"{bcolors.WARNING}Please type a valid city name.\n"+ bcolors.ENDC)
     elif user_city.lower() in [city.lower() for city in cities]:
         matching_city = [city for city in cities if city.lower() == user_city.lower()][0]
         print(f"You chose a {matching_city}")
@@ -51,7 +71,7 @@ def search_city(user_city):
             try:
                 days = int(input("How many days you plan to stay? "))
                 if days <= 0:
-                    raise ValueError("Please enter a positive integer value for the number of days.\n")
+                    raise ValueError(f"{bcolors.WARNING}Please enter a positive integer value for the number of days.\n"+ bcolors.ENDC)
                 trip_planner = Destination(matching_city, days)
                 trip_planner.plan_trip()
                 break
@@ -73,7 +93,7 @@ def city_experience():
         try:
             num = int(input("Choose your experiences: "))
             if num <= 0 or num > 4:
-                raise ValueError("Please Choose a Number Between (1-4)\n") 
+                raise ValueError(f"{bcolors.WARNING}Please Choose a Number Between (1-4)\n"+ bcolors.ENDC) 
             if num == 1:
                 days = 4
                 trip_planner = Destination("Riyadh", days)
